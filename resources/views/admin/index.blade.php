@@ -77,6 +77,19 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#dataAdmin"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                        onclick="showContent('dataAdmin')">
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 18">
+                            <path
+                                d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Data Admin</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#tabelJadwal"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                         onclick="showContent('tabelJadwal')">
@@ -117,7 +130,7 @@
 
         <div id="dashboard" class="content active">
             <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-                <img src="{{ asset('img/ukkUnipma.png') }}" alt="Logo UNIPMA" class="w-96 h-96 mx-auto mb-4" />
+                <img src="images/logo.png" alt="Logo UNIPMA" class="w-96 h-96 mx-auto mb-4" />
                 <h1
                     class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                     Selamat Datang Admin </h1>
@@ -180,17 +193,16 @@
                             <div class="p-4 md:p-5">
                                 <form class="space-y-4" action="#">
                                     <div>
-                                        <label for="email"
+                                        <label for="namaKegiatan"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                             Kegiatan</label>
-                                        <input
+                                        <input id="namaKegiatan" type="text"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                             placeholder="Kegiatan" required />
                                     </div>
                                     <div>
-                                        <label for="email"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
-                                        </label>
+                                        <label for="tanggalKegiatan"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
                                         <div class="relative max-w-sm">
                                             <div
                                                 class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -201,52 +213,61 @@
                                                         d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                                 </svg>
                                             </div>
-                                            <input datepicker id="default-datepicker" type="text"
+                                            <input id="tanggalKegiatan" datepicker type="text"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="Select date">
                                         </div>
-
                                     </div>
 
-                                    <button id="dropdownuser" data-dropdown-toggle="dropdown"
-                                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                        type="button">Lokasi kegiatan <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="m1 1 4 4 4-4" />
-                                        </svg>
-                                    </button>
-
-                                    <!-- Dropdown menu -->
-                                    <div id="dropdownuser"
-                                        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                            aria-labelledby="dropdownDefaultButton">
-                                            <li>
-                                                <a href="#"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"
-                                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                                                    out</a>
-                                            </li>
-                                        </ul>
+                                    <div class="grid grid-cols-1 mt-5 mx-7">
+                                        <label
+                                            class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Lokasi</label>
+                                        <select
+                                            class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                            <option>Lab Upt 1</option>
+                                            <option>Lab Upt 2</option>
+                                            <option>Lab Matematika</option>
+                                        </select>
                                     </div>
+
 
                                     <button type="submit"
-                                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan<button>
-
+                                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan</button>
                                 </form>
+
+                                <script>
+                                    // Menampilkan dan menyembunyikan dropdown
+                                    document.getElementById('dropdownUserButton').addEventListener('click', function () {
+                                        const dropdown = document.getElementById('dropdownUser');
+                                        dropdown.classList.toggle('hidden');
+                                    });
+
+                                    // Menangani klik di luar dropdown untuk menutup dropdown
+                                    window.addEventListener('click', function (event) {
+                                        const dropdown = document.getElementById('dropdownUser');
+                                        const button = document.getElementById('dropdownUserButton');
+
+                                        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                                            dropdown.classList.add('hidden');
+                                        }
+                                    });
+
+                                    // Menangani pemilihan lokasi
+                                    const dropdownLokasii = document.querySelectorAll('.dropdown-lokasi');
+                                    const selectedTextoo = document.getElementById('selectedText');
+
+                                    dropdownLokasi.forEach(item => {
+                                        item.addEventListener('click', function (event) {
+                                            event.preventDefault();
+                                            const selectedValue = this.getAttribute('data-lokasi');
+                                            selectedText.textContent = selectedValue; // Tampilkan lokasi yang dipilih
+                                            const dropdown = document.getElementById('dropdownUser');
+                                            dropdown.classList.add('hidden'); // Sembunyikan dropdown setelah pemilihan
+                                        });
+                                    });
+                                </script>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -273,6 +294,27 @@
                                 Lab Fisika</th>
                             <td class="px-6 py-4">01 Oktober 2024</td>
                             <td class="px-6 py-4">Lab Fisika 101</td>
+
+                            <td class="px-6 py-4"><a href="#"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></td>
+                        </tr>
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Kegiatan
+                                Lab Kimia</th>
+                            <td class="px-6 py-4">02 Oktober 2024</td>
+                            <td class="px-6 py-4">Lab Kimia 102</td>
+
+                            <td class="px-6 py-4"><a href="#"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Kegiatan
+                                Lab Biologi</th>
+                            <td class="px-6 py-4">03 Oktober 2024</td>
+                            <td class="px-6 py-4">Lab Biologi 103</td>
+
                             <td class="px-6 py-4"><a href="#"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a></td>
                         </tr>
@@ -282,12 +324,14 @@
         </div>
 
 
+        {{-- awal data admin --}}
+        @include('komponen.dataAdmin')
+        {{-- akhir data admin --}}
+
+
         {{-- awal data user --}}
         @include('komponen.dataUser')
         {{-- akhir data user --}}
-
-
-
         <div id="tabelJadwal" class="content">
             <h2 class="text-lg font-bold">Tabel Jadwal</h2>
             <p>Ini adalah konten untuk Tabel Jadwal.</p>

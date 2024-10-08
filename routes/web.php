@@ -26,6 +26,7 @@ Route::get('/', [HomeController::class, 'loginForm']);
 Route::get('pendaftaran-ukk', [HomeController::class, 'index'])->name('pendaftaran-ukk');
 Route::get('admin-ukk', [AdminUkk::class, 'index'])->name( 'admin-ukk');
 Route::post('post-form', [FormController::class, 'postForm'])->name('post-form');
+Route::post('admin-form', [AdminUkk::class, 'tambahAdmin'])->name('admin-form');
 Route::get('/getSeats', [HomeController::class, 'getSeats']);
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('login', [LoginController::class, 'login'])->name('login');
