@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminUkk;
+use App\Http\Controllers\PesertaUkk;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
@@ -27,8 +28,11 @@ Route::get('pendaftaran-ukk', [HomeController::class, 'index'])->name('pendaftar
 Route::get('admin-ukk', [AdminUkk::class, 'index'])->name( 'admin-ukk');
 Route::post('post-form', [FormController::class, 'postForm'])->name('post-form');
 Route::post('admin-form', [AdminUkk::class, 'tambahAdmin'])->name('admin-form');
+Route::put('edit-admin-{id}', [AdminUkk::class, 'update'])->name('edit-admin');
+Route::post('akun-peserta-form', [PesertaUkk::class, 'tambahPeserta'])->name('akun-peserta-form');
 Route::get('/getSeats', [HomeController::class, 'getSeats']);
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('/getSeats', [HomeController::class, 'getSeats']);
+Route::post('logout', [FormController::class, 'logout'])->name('logout');
 

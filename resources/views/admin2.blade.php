@@ -66,16 +66,13 @@
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                     <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->username }}</span>
-                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
+                        <span class="block text-sm text-gray-900 dark:text-white">Raden mas coba juga ini nama apa</span>
+                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         
                         <li>
-                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" 
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" data-modal-target="popup-modal-logout" data-modal-toggle="popup-modal-logout">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -163,8 +160,6 @@
 <!-- akhir navbar -->
 
 <!-- modal logoout -->
-<form id="logout-form"  action="{{ route('logout') }}" method="POST">
-    @csrf
 <div id="popup-modal-logout" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -182,7 +177,7 @@
         </div>
     </div>
 </div>
-</form>
+
 <!-- section class -->
 <section class="text-black relative overflow-hidden" id="home">
     <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">

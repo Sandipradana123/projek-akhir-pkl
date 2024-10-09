@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
@@ -52,8 +53,21 @@ class FormController extends Controller
          ]);
      
          return redirect()->back()->with('success', 'Data berhasil ditambahkan ke ' . $tableName);
-     
- 
-        
+
+    }
+
+    public function logout(Request $request)
+    {
+        // // Hapus sesi dan logout pengguna
+        // Auth::logout();
+
+        // // Menghapus semua sesi pengguna
+        // $request->session()->invalidate();
+
+        // // Menghasilkan ulang token sesi
+        // $request->session()->regenerateToken();
+
+        // // Redirect ke halaman login atau halaman lain
+        return redirect('/');
     }
 }
