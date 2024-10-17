@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DeleteController;
 use App\Models\LabKomp1;
 use App\Exports\ExportData;
 use App\Http\Controllers\AdminUkk;
@@ -56,3 +57,5 @@ Route::get('/getSeats', [HomeController::class, 'getSeats'])->name('getSeats');
 Route::get('/export', [exportController::class, 'export']);
 
 Route::get('/export-jadwal', [exportController::class, 'export']);
+
+Route::delete('delete-kegiatan/{id}', [DeleteController::class, 'deleteKegiatan'])->name('delete-kegiatan');
