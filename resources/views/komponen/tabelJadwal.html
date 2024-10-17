@@ -1,89 +1,183 @@
-<div id="moreContent" class="hidden mt-4">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div id="tabelJadwal" class="hidden">
+    <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
+        <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
+    </div>
+ 
+    <div class="flex flex-wrap mt-3" id="cardContainer">
+        <div id="firstCard" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 1</h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Kampus 1 Lantai 3</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta : 240</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta: 240</p>
             <button onclick="showTable()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 View
                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
-            </button>
-            <button onclick="showBackFromMore()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mt-2">
-                Kembali
             </button>
         </div>
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 1</h5>
+ 
+        <div id="secondCard" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-2">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 2</h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Kampus 1 Lantai 3</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta : 240</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta: 240</p>
             <button onclick="showTable()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 View
                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
-            </button>
-            <button onclick="showBackFromMore()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mt-2">
-                Kembali
             </button>
         </div>
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 1</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Kampus 1 Lantai 3</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta : 240</p>
-            <button onclick="showTable()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                View
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </button>
-            <button onclick="showBackFromMore()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mt-2">
-                Kembali
-            </button>
-        </div>
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 1</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Kampus 1 Lantai 3</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta : 240</p>
-            <button onclick="showTable()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                View
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </button>
-            <button onclick="showBackFromMore()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mt-2">
-                Kembali
-            </button>
-        </div>
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 1</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Kampus 1 Lantai 3</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta : 240</p>
-            <button onclick="showTable()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                View
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </button>
-            <button onclick="showBackFromMore()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mt-2">
-                Kembali
-            </button>
-        </div>
-        <div class="max-w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lab UPT Komputer 1</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Kampus 1 Lantai 3</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Total Peserta : 240</p>
-            <button onclick="showTable()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                View
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-            </button>
-            <button onclick="showBackFromMore()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mt-2">
-                Kembali
-            </button>
+    </div>
+ 
+    <!-- Tabel Informasi -->
+    <div id="tableContent" class="hidden mt-6">
+        <h1 class="text-3xl font-bold mb-4 text-center">Tabel Informasi</h1>
+        <button onclick="showBackFromTable()" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400">
+            Kembali
+        </button>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">No</th>
+                        <th scope="col" class="px-6 py-3">Nama</th>
+                        <th scope="col" class="px-6 py-3">Email</th>
+                        <th scope="col" class="px-6 py-3">NIM</th>
+                        <th scope="col" class="px-6 py-3">Prodi</th>
+                        <th scope="col" class="px-6 py-3">Kegiatan</th>
+                        <th scope="col" class="px-6 py-3">Tanggal</th>
+                        <th scope="col" class="px-6 py-3">Sesi</th>
+                        <th scope="col" class="px-6 py-3">Lab</th>
+                        <th scope="col" class="px-6 py-3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <th class="px-6 py-4 text-lg">1</th>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-lg">Ronaldo</th>
+                        <td class="px-6 py-4 text-lg">unipma@gmail.com</td>
+                        <td class="px-6 py-4 text-lg">8765434567654</td>
+                        <td class="px-6 py-4 text-lg">Pendidikan Akuntansi</td>
+                        <td class="px-6 py-4 text-lg">IC3 Digital Literacy</td>
+                        <td class="px-6 py-4 text-lg">23 November 2024</td>
+                        <td class="px-6 py-4 text-lg">1</td>
+                        <td class="px-6 py-4 text-lg">Lab Upt 1</td>
+                        <td class="px-6 py-4 flex space-x-2">
+                            <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-target="modal-edit-tabel" data-modal-toggle="modal-edit-tabel">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
  
+ 
+ 
+<!-- Main modal -->
+<div id="modal-edit-tabel" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                   Edit Data
+                </h3>
+                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="modal-edit-tabel">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5">
+                <form class="space-y-4" action="#">
+                    <div>
+                        <label for="No" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No : </label>
+                        <input type="No" name="No" id="No" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="input dari db" required />
+                    </div>
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name : </label>
+                        <input type="name" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="nama dari database" required />
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
+                    </div>
+                    <div>
+                        <label for="nim" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nim</label>
+                        <input type="nim" name="nim" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="nim dari database" required />
+                    </div>
+                    <div>
+                        <label for="prodi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prodi : </label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                        <option>Prodi akutansi</option>
+                        <option>Prodi teknik informatika</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="kegiatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kegiatan : </label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                        <option>Ic3 Digital Literacy</option>
+                        <option>PPG</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="Tanggal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal : </label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                        <option>22 Oktober 2024</option>
+                        <option>25 Oktober 2024</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="sesi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sesi : </label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                        <option>1</option>
+                        <option>2</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="prodi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lab : </label>
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                        <option>Lab Komputer 1</option>
+                        <option>Lab Komputer 2</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-between">
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
+ 
+<script>
+    window.onload = function() {
+        const showTable = localStorage.getItem('showTable');
+ 
+        if (showTable === 'true') {
+            document.getElementById('cardContainer').classList.add('hidden');
+            document.getElementById('tableContent').classList.remove('hidden');
+        }
+    };
+ 
+    function showTable() {
+        localStorage.setItem('showTable', 'true'); // Simpan status di localStorage
+        const cardContainer = document.getElementById('cardContainer');
+        const tableContent = document.getElementById('tableContent');
+ 
+        cardContainer.classList.add('hidden'); 
+        tableContent.classList.remove('hidden'); 
+    }
+ 
+    function showBackFromTable() {
+        localStorage.removeItem('showTable'); // Hapus status dari localStorage
+        const cardContainer = document.getElementById('cardContainer');
+        const tableContent = document.getElementById('tableContent');
+ 
+        cardContainer.classList.remove('hidden'); 
+        tableContent.classList.add('hidden'); 
+    }
+</script>

@@ -68,12 +68,36 @@
                 </a>
             </li>
             <li>
-                <a href="#tabelJadwal"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                    onclick="showContent('tabelJadwal')">
-                    <i class="fas fa-calendar-check"></i> <!-- Jadwal Selesai -->
-                    <span class="flex-1 ms-3 whitespace-nowrap">Tabel Jadwal</span>
-                </a>
+                
+                    <a href="#tabelJadwal"
+                        class="flex items-center p-2 rounded-lg hover:bg-gray-600 group"
+                        onclick="toggleDropdown('dropdownLab')">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Tabel Jadwal</span>
+                        <i class="fas fa-chevron-down ml-auto transition-transform" id="iconDropdown"></i>
+                    </a>
+                
+                    <!-- Dropdown yang tersembunyi -->
+                    <div id="dropdownLab" class="hidden mt-2 space-y-2 pl-4">
+                        <a href="#lab1" class="block">Lab 1</a>
+                        <a href="#lab2" class="block">Lab 2</a>
+                        <a href="#lab3" class="block">Lab 3</a>
+                    </div>
+
+                
+                <script>
+                    function toggleDropdown(id) {
+                        const dropdown = document.getElementById(id);
+                        const icon = document.getElementById('iconDropdown');
+                
+                        // Toggle visibility
+                        dropdown.classList.toggle('hidden');
+                
+                        // Rotate icon when dropdown is visible
+                        icon.classList.toggle('rotate-180');
+                    }
+                </script>
+                
             </li>
             <li>
                 <a href="#logout"

@@ -1,4 +1,7 @@
 @include('komponen.style')
+<div id="lab1">
+    <p>Ini adalah konten untuk Lab 1.</p>
+</div>
 <div id="tabelJadwal" class="hidden">
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
@@ -139,6 +142,62 @@
 </div>
 
 <script>
+    
+
+
+
+    window.onload = function() {
+        const showTable = localStorage.getItem('showTable');
+        const showMoreContent = localStorage.getItem('showMoreContent');
+
+        if (showTable === 'true') {
+            document.getElementById('cardContainer').classList.add('hidden');
+            document.getElementById('tableContent').classList.remove('hidden');
+        } else if (showMoreContent === 'true') {
+            document.getElementById('cardContainer').classList.add('hidden');
+            document.getElementById('moreContent').classList.remove('hidden');
+        }
+    };
+
+    function showMore() {
+        localStorage.setItem('showMoreContent', 'true'); // Simpan status di localStorage
+        const cardContainer = document.getElementById('cardContainer');
+        const moreContent = document.getElementById('moreContent');
+
+        cardContainer.classList.add('hidden');
+        moreContent.classList.remove('hidden');
+    }
+
+    function showTable() {
+        localStorage.setItem('showTable', 'true'); // Simpan status di localStorage
+        localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
+        const moreContent = document.getElementById('moreContent');
+        const tableContent = document.getElementById('tableContent');
+
+        moreContent.classList.add('hidden');
+        tableContent.classList.remove('hidden');
+    }
+
+    function showBackFromMore() {
+        localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
+        const cardContainer = document.getElementById('cardContainer');
+        const moreContent = document.getElementById('moreContent');
+
+        cardContainer.classList.remove('hidden');
+        moreContent.classList.add('hidden');
+    }
+
+    function showBackFromTable() {
+        localStorage.removeItem('showTable'); // Hapus status dari localStorage
+        const cardContainer = document.getElementById('cardContainer');
+        const moreContent = document.getElementById('moreContent');
+        const tableContent = document.getElementById('tableContent');
+
+        cardContainer.classList.remove('hidden');
+        moreContent.classList.add('hidden');
+        tableContent.classList.add('hidden');
+    }
+
     document.getElementById('filterKegiatan').addEventListener('change', function() {
         const selectedKegiatan = this.value.toLowerCase();
 
@@ -207,58 +266,5 @@
             }
         });
     });
-
-
-
-    window.onload = function() {
-        const showTable = localStorage.getItem('showTable');
-        const showMoreContent = localStorage.getItem('showMoreContent');
-
-        if (showTable === 'true') {
-            document.getElementById('cardContainer').classList.add('hidden');
-            document.getElementById('tableContent').classList.remove('hidden');
-        } else if (showMoreContent === 'true') {
-            document.getElementById('cardContainer').classList.add('hidden');
-            document.getElementById('moreContent').classList.remove('hidden');
-        }
-    };
-
-    function showMore() {
-        localStorage.setItem('showMoreContent', 'true'); // Simpan status di localStorage
-        const cardContainer = document.getElementById('cardContainer');
-        const moreContent = document.getElementById('moreContent');
-
-        cardContainer.classList.add('hidden');
-        moreContent.classList.remove('hidden');
-    }
-
-    function showTable() {
-        localStorage.setItem('showTable', 'true'); // Simpan status di localStorage
-        localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
-        const moreContent = document.getElementById('moreContent');
-        const tableContent = document.getElementById('tableContent');
-
-        moreContent.classList.add('hidden');
-        tableContent.classList.remove('hidden');
-    }
-
-    function showBackFromMore() {
-        localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
-        const cardContainer = document.getElementById('cardContainer');
-        const moreContent = document.getElementById('moreContent');
-
-        cardContainer.classList.remove('hidden');
-        moreContent.classList.add('hidden');
-    }
-
-    function showBackFromTable() {
-        localStorage.removeItem('showTable'); // Hapus status dari localStorage
-        const cardContainer = document.getElementById('cardContainer');
-        const moreContent = document.getElementById('moreContent');
-        const tableContent = document.getElementById('tableContent');
-
-        cardContainer.classList.remove('hidden');
-        moreContent.classList.add('hidden');
-        tableContent.classList.add('hidden');
-    }
+    
 </script>

@@ -134,7 +134,7 @@
                         Password
                     </th>
 
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 py-3 text-center">
                         Action
                     </th>
                 </tr>
@@ -163,7 +163,7 @@
                             {{ $dataUser->username }}
                         </td>
 
-                        <td class="px-6 py-4 flex justify-between space-x-2">
+                        <td class="px-6 py-4 flex justify-center gap-2">
                             <button data-modal-target="authentication/{{ $dataUser->id }}"
                                 data-modal-toggle="authentication-modal-user-edit2"
                                 type="button">
