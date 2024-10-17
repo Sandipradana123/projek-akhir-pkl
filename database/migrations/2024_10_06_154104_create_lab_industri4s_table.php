@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lab_industri4', function (Blueprint $table) {
+        Schema::create('lab-industri4', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('email');
@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('kegiatan');
             $table->string('jadwal');
             $table->string('sesi');
-            $table->string('nomor-kursi');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

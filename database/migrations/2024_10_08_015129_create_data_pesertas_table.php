@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_pesertas', function (Blueprint $table) {
+        Schema::create('data-peserta', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('nim')->unique();
             $table->string('prodi');
             $table->string('email')->unique();
             $table->string('password');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sesi;
 use App\Models\User;
+use App\Models\Jadwal;
+use App\Models\Kegiatan;
+use App\Models\LabKomp1;
+use App\Models\DaftarLab;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -15,13 +20,49 @@ class AdminUkk extends Controller
         $users = User::where('kategori', 'user')->get();
         $admin = User::where('kategori', 'admin')->get();
         $prodi = DB::table('prodi')->pluck('daftar-prodi');
-
+        $daftarKegiatan = DB::table('kegiatan')->pluck('daftar-kegiatan');
+        $kegiatan  = Kegiatan::all();
+        $jadwal  = Jadwal::all();
+        $lab = DaftarLab::all();
+        $sesi = Sesi::all();
+        $labKomp1 = LabKomp1::all();
         // Mengirim data ke view
         return view('admin.index', [
             'users' => $users,
             'admin' => $admin,
-            'prodi' => $prodi
+            'prodi' => $prodi,
+            'kegiatan' => $kegiatan,
+            'daftarKegiatan' => $daftarKegiatan,
+            'jadwal' => $jadwal,
+            'lab' => $lab,
+            'sesi' => $sesi,
+            'labKomp1' => $labKomp1
         ]);
+    }
+
+    public function tambahJadwal(Request $request){
+        
+        
+        DB::table('jadwal')->insert([
+            'kegiatan' => $request->kegiatan,
+            'daftar-jadwal' => $request->tanggal,
+        ]);
+
+        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
+    }
+
+    public function tambahKegiatan(Request $request){
+
+        
+        DB::table('kegiatan')->insert([
+            'daftar-kegiatan' => $request->kegiatan,
+            'tanggal' => $request->tanggal,
+            'jumlah-lab' => $request->jumlahLab,
+            'jumlah-sesi' => $request->jumlahSesi,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
     }
 
 
@@ -102,4 +143,42 @@ class AdminUkk extends Controller
 
     return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
     }
+
+    public function updateLab(Request $request,$id){
+
+        // dd($request);
+        $lab = DaftarLab::findOrFail($id);
+        // Update data admin
+    $lab['slot-kursi'] = $request->slotKursi;
+    $lab['status'] = $request->status;
+
+    $lab->save();
+    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    }
+    public function updateSesi(Request $request,$id){
+
+        // dd($request);
+        $sesi = Sesi::findOrFail($id);
+        // Update data admin
+    $sesi['daftar-sesi'] = $request->sesi;
+    $sesi['status'] = $request->status;
+
+    $sesi->save();
+    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    }
+    public function updateKegiatan(Request $request,$id){
+
+        // dd($request);
+        $kegiatan = Kegiatan::findOrFail($id);
+        // Update data admin
+    $kegiatan['daftar-kegiatan'] = $request->kegiatan;
+    $kegiatan['status'] = $request->tanggal;
+    $kegiatan['jumlah-lab'] = $request->jmlLab;
+    $kegiatan['jumlah-sesi'] = $request->sesi;
+    $kegiatan['status'] = $request->status;
+
+    $kegiatan->save();
+    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    }
+
 }

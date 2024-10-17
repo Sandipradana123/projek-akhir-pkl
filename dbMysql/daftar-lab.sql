@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 07 Okt 2024 pada 20.02
+-- Waktu pembuatan: 14 Okt 2024 pada 15.14
 -- Versi server: 8.0.39-0ubuntu0.22.04.1
 -- Versi PHP: 8.1.2-1ubuntu2.19
 
@@ -30,25 +30,28 @@ SET time_zone = "+00:00";
 CREATE TABLE `daftar-lab` (
   `id` bigint UNSIGNED NOT NULL,
   `nama-lab` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value-lab` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slot-kursi` int NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `daftar-lab`
 --
 
-INSERT INTO `daftar-lab` (`id`, `nama-lab`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'Lab upt komputer 1 (kampus 1 lantai 3)', 'lab_komp1', NULL, NULL),
-(2, 'Lab upt komputer 2 (kampus 1 lantai 3)', 'lab_komp2', NULL, NULL),
-(3, 'Lab akutansi (kampus 1 lantai 3)', 'lab_aka1', NULL, NULL),
-(4, 'Lab matematika (kampus 1 lantai 3)', 'lab_mate3', NULL, NULL),
-(5, 'Lab Teknik informatika (kampus 3 lantai 4)', 'lab_informatika3', NULL, NULL),
-(6, 'Lab feb (kampus 3 lantai 4)', 'lab_feb3', NULL, NULL),
-(7, 'Lab sistem informasi (kampus 4 lantai 6)', 'lab_si4', NULL, NULL),
-(8, 'Lab teknik industri (kampus 4 lantai 6)', 'lab_industri4', NULL, NULL),
-(9, 'Lab akutansi (kampus 4 lantai 6)', 'lab_aka4', NULL, NULL);
+INSERT INTO `daftar-lab` (`id`, `nama-lab`, `value-lab`, `slot-kursi`, `status`, `value`, `created_at`, `updated_at`) VALUES
+(1, 'Lab upt komputer 1 (kampus 1 lantai 3)', 'lab-komp1', 5, 'Aktif', 'lab-komp1', '2024-10-14 04:08:30', '2024-10-14 04:08:30'),
+(2, 'Lab upt komputer 2 (kampus 1 lantai 3)', 'lab-komp2', 2, 'Aktif', 'lab-komp2', '2024-10-14 04:08:30', '2024-10-14 04:08:30'),
+(3, 'Lab pendidikan matematika (kampus 1 lantai 3)', 'lab-mate1', 20, 'Aktif', 'lab-mate1', '2024-10-14 05:51:37', '2024-10-14 05:51:37'),
+(4, 'Lab pendidikan akutansi (kampus 1 lantai 2)', 'lab-aka1', 20, 'Aktif', 'lab-aka1', '2024-10-14 05:51:37', '2024-10-14 05:51:37'),
+(5, 'Lab fakultas ekonomi dan bisnis (kampus 3 lantai 4)', 'lab-feb3', 20, 'Aktif', 'lab-feb3', '2024-10-14 05:51:37', '2024-10-14 05:51:37'),
+(6, 'Lab teknik informatika (kampus 3 lantai 3)', 'lab-informatika3', 5, 'Aktif', 'lab-informatika3', '2024-10-14 05:51:37', '2024-10-14 05:51:37'),
+(7, 'Lab sistem informasi (lab terpadu lantai 6)', 'lab-si4', 15, 'Aktif', 'lab-si4', '2024-10-14 05:51:37', '2024-10-14 05:51:37'),
+(8, 'Lab teknik industri (lab terpadu lantai 6)', 'lab-industri4', 10, 'Aktif', 'lab-industri4', '2024-10-14 05:51:37', '2024-10-14 05:51:37'),
+(9, 'Lab akutansi (lab terpadu lantai 6)', 'lab-aka4', 20, 'Aktif', 'lab-aka4', '2024-10-14 05:51:37', '2024-10-14 05:51:37');
 
 --
 -- Indexes for dumped tables

@@ -9,7 +9,7 @@
         <button data-modal-target="authentication-modal-user" data-modal-toggle="authentication-modal-user"
             class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button">
-            Tambah User
+            <i class="fas fa-plus"></i> <!-- Ikon Font Awesome Plus -->
         </button>
 
         <!-- Main modal -->
@@ -166,9 +166,8 @@
                         <td class="px-6 py-4 flex justify-between space-x-2">
                             <button data-modal-target="authentication/{{ $dataUser->id }}"
                                 data-modal-toggle="authentication-modal-user-edit2"
-                                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 type="button">
-                                Edit
+                                <i class="fas fa-edit"></i><!-- Font Awesome 6 -->
                             </button>
 
                             {{-- modal edit --}}
@@ -287,9 +286,8 @@
 
                             <!-- Button Hapus -->
                             <button data-modal-target="popup-modal-user1" data-modal-toggle="popup-modal-user1"
-                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                                 type="button">
-                                Hapus
+                                <i class="fas fa-trash-alt"></i> <!-- Font Awesome 5 -->
                             </button>
                             <div id="popup-modal-user1" tabindex="-1"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

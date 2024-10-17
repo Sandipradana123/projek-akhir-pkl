@@ -36,8 +36,30 @@ class FormController extends Controller
             'lab.required' => 'Lab wajib dipilih.'
         ]);
 
+
          // Menentukan tabel berdasarkan input form 'lab'
          $tableName = $request->input('lab');
+        
+    $kursiLab = DB::table('daftar-lab')
+    ->where('value-lab', $tableName)
+    ->value('slot-kursi'); // A
+
+   
+    // Cek jumlah data dengan jadwal yang sama
+    $count = DB::table($tableName)
+        ->where('jadwal', $request->jadwal)
+        ->where('kegiatan', $request->kegiatan)
+        ->where('sesi', $request->sesi)
+        ->count();
+
+         // Debugging: Cek jumlah yang ditemukan
+        //  dd($count, $kursiLab); // Lihat hasilnya sebelum pengecekan
+
+    // dd($count); // uncomment ini untuk melihat nilai count
+    // dd($request->all(), $count);
+    if ($count >= $kursiLab) {
+        return redirect()->back()->withErrors(['cekSlot' => 'sesi sudah penuh,silahkan coba pilih sesi lain atau jadwal lain'])->withInput();
+    }
 
         //  dd($request->all());
          // Simpan data ke dalam tabel yang dipilih menggunakan Query Builder
@@ -51,6 +73,8 @@ class FormController extends Controller
              'sesi' => $request->sesi,
             //  'nomor-kursi' => $request->seat
          ]);
+
+      
      
          return redirect()->back()->with('success', 'Data berhasil ditambahkan ke ' . $tableName);
 

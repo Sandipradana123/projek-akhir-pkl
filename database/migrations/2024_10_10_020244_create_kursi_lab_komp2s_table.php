@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('slot_kursi', function (Blueprint $table) {
+        Schema::create('kursi-lab-komp2', function (Blueprint $table) {
             $table->id();
             $table->string('nama-lab');
-            $table->integer('jumlah-kursi');
+            $table->integer('nomor-kursi');
+            $table->string('tanggal');
+            $table->string('sesi');
+            $table->string('status-kursi');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('slot_kursis');
+        Schema::dropIfExists('kursi_lab_komp2s');
     }
 };

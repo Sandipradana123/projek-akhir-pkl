@@ -35,7 +35,7 @@
 <header class="bg-white" id="nav">
     <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-4 px-7 sm:px-6 lg:px-8">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="images/logo.png" class="h-8" alt="Unipma Logo" />
+            <img src="{{ asset('img/ukkUnipma.png') }}" class="h-8" alt="Unipma Logo" />
             <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">universitas pgri madiun</span>
         </a>
         <div class="flex flex-1 items-center justify-end md:justify-center">

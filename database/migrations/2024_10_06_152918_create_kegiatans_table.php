@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
             $table->string('daftar-kegiatan');
-            $table->timestamps();
+            $table->string('tanggal');
+            $table->string('jumlah-lab');
+            $table->string('jumlah-sesi');
+            $table->string('status');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

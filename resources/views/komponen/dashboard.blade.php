@@ -9,7 +9,7 @@
             <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
         </div>
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-            <img src="images/logo.png" alt="Logo UNIPMA" class="w-96 h-96 mx-auto mb-4" />
+            <img src="{{ asset('img/ukkUnipma.png') }}" alt="Logo UNIPMA" class="w-96 h-96 mx-auto mb-4" />
             <h1
                 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 Selamat Datang Admin </h1>

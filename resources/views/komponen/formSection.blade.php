@@ -22,7 +22,7 @@
                             <div>
                                 <label for="fullName" class="text-base font-medium text-gray-900">Nama Lengkap:</label>
                                 <div class="mt-2.5">
-                                    <input type="text" name="nama" id="fullName"
+                                    <input type="text" name="nama" id="fullName" autocomplete="off"
                                         placeholder="Masukkan nama Lengkap"
                                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('nama') border-red-500 @enderror"
                                         value="{{ old('nama') }}" />
@@ -37,7 +37,9 @@
                                 <label for="email" class="text-base font-medium text-gray-900">Email:</label>
                                 <div class="mt-2.5">
                                     <input type="email" name="email" id="email" placeholder="Masukkan Email"
-                                        class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('email') border-red-500 @enderror" value="{{ old('email') }}"  />
+                                        autocomplete="off"
+                                        class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('email') border-red-500 @enderror"
+                                        value="{{ old('email') }}" />
 
                                     @error('email')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -49,7 +51,9 @@
                                 <label for="nim" class="text-base font-medium text-gray-900">NIM:</label>
                                 <div class="mt-2.5">
                                     <input type="text" name="nim" id="nim" placeholder="Masukan Nomer Nim"
-                                        class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('nim') border-red-500 @enderror" value="{{ old('nim') }}" />
+                                        autocomplete="off"
+                                        class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('nim') border-red-500 @enderror"
+                                        value="{{ old('nim') }}" />
 
                                     @error('nim')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -116,17 +120,19 @@
                             </div>
 
                             <div>
-                                <label for="Tanggal" class="text-base font-medium text-gray-900">Sesi Kegiatan :
+                                <label for="sesi" class="text-base font-medium text-gray-900">Sesi Kegiatan :
                                 </label>
                                 <div class="mt-2.5">
-                                    <select id="tanggal" name="sesi"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('sesi') border-red-500 @enderror">
+                                    <select id="sesi" name="sesi"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('cekSlot') border-red-500 @enderror">
                                         <option selected>*pilih sesi</option>
                                         @foreach ($sesi as $daftarSesi)
-                                            <option value="{{ $daftarSesi }}" {{ old('sesi') == $daftarSesi ? 'selected' : '' }}>{{ $daftarSesi }}</option>
+                                            <option value="{{ $daftarSesi }}"
+                                                {{ old('sesi') == $daftarSesi ? 'selected' : '' }}>{{ $daftarSesi }}
+                                            </option>
                                         @endforeach
                                     </select>
-                                    @error('sesi')
+                                    @error('cekSlot')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -140,7 +146,9 @@
                                         onchange="toggleSeats()">
                                         <option selected>*pilih lab</option>
                                         @foreach ($lab as $value => $daftarLab)
-                                            <option value="{{ $value }}" {{ old('lab') == $value ? 'selected' : '' }}>{{ $daftarLab }}</option>
+                                            <option value="{{ $value }}"
+                                                {{ old('lab') == $value ? 'selected' : '' }}>{{ $daftarLab }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     @error('lab')
@@ -148,77 +156,62 @@
                                     @enderror
                                 </div>
                             </div>
+                            {{-- 
+                            @foreach ($statusKursi as $jadwal => $sesiData)
+                            <h3>Jadwal: {{ $jadwal }}</h3>
+                            @foreach ($sesiData as $sesi => $data)
+                                <p>Sesi: {{ $sesi }} - Status: {{ $data['status'] }} ({{ $data['kursi_tersedia'] }} kursi tersedia)</p>
+                            @endforeach
+                        @endforeach
+                         --}}
 
-                            <div class="space-y-2 hidden" id="seatsContainer">
-                                <input type="hidden" id="selectedSeat" name="seat" value="">
-                                <label class="text-base font-medium text-gray-900">Tempat Duduk:</label>
-                                <div class="mt-2.5 flex flex-wrap gap-2">
-                                    <div class="flex flex-col">
-                                        <div class="grid grid-cols-3 gap-2">
-                                            <div
-                                                class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded hover:bg-blue-600 cursor-pointer seat">
-                                                1</div>
-                                            <div
-                                                class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded hover:bg-blue-600 cursor-pointer seat">
-                                                2</div>
-                                            <div
-                                                class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded hover:bg-blue-600 cursor-pointer">
-                                                3</div>
-                                            <div
-                                                class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded hover:bg-blue-600 cursor-pointer">
-                                                4</div>
-                                            <div
-                                                class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded hover:bg-blue-600 cursor-pointer">
-                                                5</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-<script>
-    function toggleSeats() {
-        var selectedLab = $('#lab').val(); // Ambil value dari dropdown lab yang dipilih
-        
-        if (selectedLab) {
-            $.ajax({
-                url: '/getSeats', // URL yang dituju untuk mengambil data tempat duduk
-                type: 'GET',
-                data: { lab: selectedLab }, // Kirim data lab yang dipilih ke server
-                success: function(data) {
-                    // Clear existing seats
-                    $('#seatsContainer .grid').empty();
 
-                    // Tampilkan tempat duduk yang tersedia dari respons server
-                    data.seats.forEach(function(seat) {
-                        $('#seatsContainer .grid').append(`
+                            <script>
+                                function toggleSeats() {
+                                    var selectedLab = $('#lab').val(); // Ambil value dari dropdown lab yang dipilih
+
+                                    if (selectedLab) {
+                                        $.ajax({
+                                            url: '/getSeats', // URL yang dituju untuk mengambil data tempat duduk
+                                            type: 'GET',
+                                            data: {
+                                                lab: selectedLab
+                                            }, // Kirim data lab yang dipilih ke server
+                                            success: function(data) {
+                                                // Clear existing seats
+                                                $('#seatsContainer .grid').empty();
+
+                                                // Tampilkan tempat duduk yang tersedia dari respons server
+                                                data.seats.forEach(function(seat) {
+                                                    $('#seatsContainer .grid').append(`
                             <div class="w-10 h-10 bg-blue-500 text-white flex items-center justify-center rounded hover:bg-blue-600 cursor-pointer seat">${seat}</div>
                         `);
-                    });
+                                                });
 
-                    // Tampilkan container tempat duduk
-                    $('#seatsContainer').removeClass('hidden');
+                                                // Tampilkan container tempat duduk
+                                                $('#seatsContainer').removeClass('hidden');
 
-                    // Re-bind event listener ke tempat duduk yang baru di-generate
-                    bindSeatSelection();
-                }
-            });
-        }
-    }
+                                                // Re-bind event listener ke tempat duduk yang baru di-generate
+                                                bindSeatSelection();
+                                            }
+                                        });
+                                    }
+                                }
 
-    // Bind ulang event listener setelah tempat duduk baru ditampilkan
-    function bindSeatSelection() {
-        const seats = document.querySelectorAll('.seat');
-        const selectedSeatInput = document.getElementById('selectedSeat');
+                                // Bind ulang event listener setelah tempat duduk baru ditampilkan
+                                function bindSeatSelection() {
+                                    const seats = document.querySelectorAll('.seat');
+                                    const selectedSeatInput = document.getElementById('selectedSeat');
 
-        seats.forEach(seat => {
-            seat.addEventListener('click', function() {
-                seats.forEach(s => s.classList.remove('bg-red-500'));
-                this.classList.add('bg-red-500');
-                selectedSeatInput.value = this.textContent.trim();
-            });
-        });
-    }
-</script>
+                                    seats.forEach(seat => {
+                                        seat.addEventListener('click', function() {
+                                            seats.forEach(s => s.classList.remove('bg-red-500'));
+                                            this.classList.add('bg-red-500');
+                                            selectedSeatInput.value = this.textContent.trim();
+                                        });
+                                    });
+                                }
+                            </script>
 
 
 
