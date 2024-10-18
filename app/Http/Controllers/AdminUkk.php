@@ -180,5 +180,15 @@ class AdminUkk extends Controller
     $kegiatan->save();
     return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
     }
+    public function updateTanggal(Request $request,$id){
+
+        // dd($request);
+        $jadwal = Jadwal::findOrFail($id);
+        // Update data jadwal
+    $jadwal['daftar-jadwal'] = $request->tanggal;
+
+    $jadwal->save();
+    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    }
 
 }

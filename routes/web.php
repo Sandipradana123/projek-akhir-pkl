@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\DeleteController;
 use App\Models\LabKomp1;
 use App\Exports\ExportData;
 use App\Http\Controllers\AdminUkk;
@@ -8,10 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\PesertaUkk;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MhsController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DeleteController;
 use App\Http\Controllers\exportController;
 
 /*
@@ -39,6 +40,7 @@ Route::post('admin-form', [AdminUkk::class, 'tambahAdmin'])->name('admin-form');
 Route::put('edit-admin-{id}', [AdminUkk::class, 'update'])->name('edit-admin');
 Route::put('edit-lab-{id}', [AdminUkk::class, 'updateLab'])->name('edit-lab');
 Route::put('edit-sesi-{id}', [AdminUkk::class, 'updateSesi'])->name('edit-sesi');
+Route::put('edit-tanggal-{id}', [AdminUkk::class, 'updateTanggal'])->name('edit-tanggal');
 Route::put('edit-kegiatan-{id}', [AdminUkk::class, 'updatekegiatan'])->name('edit-kegiatan');
 Route::post('akun-peserta-form', [PesertaUkk::class, 'tambahPeserta'])->name('akun-peserta-form');
 Route::get('/getSeats', [HomeController::class, 'getSeats']);
@@ -59,3 +61,6 @@ Route::get('/export', [exportController::class, 'export']);
 Route::get('/export-jadwal', [exportController::class, 'export']);
 
 Route::delete('delete-kegiatan/{id}', [DeleteController::class, 'deleteKegiatan'])->name('delete-kegiatan');
+Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])->name('delete-tanggal');
+
+Route::post('/siswa/import', [MhsController::class, 'import'])->name('siswa.import');
