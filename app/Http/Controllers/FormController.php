@@ -71,7 +71,6 @@ class FormController extends Controller
              'kegiatan' => $request->kegiatan,
              'jadwal' => $request->jadwal,
              'sesi' => $request->sesi,
-            //  'nomor-kursi' => $request->seat
          ]);
 
       

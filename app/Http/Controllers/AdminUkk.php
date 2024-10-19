@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Sesi;
 use App\Models\User;
 use App\Models\Jadwal;
+use App\Models\LabSi4;
+use App\Models\LabAka1;
+use App\Models\LabAka4;
+use App\Models\LabFeb3;
 use App\Models\Kegiatan;
 use App\Models\LabKomp1;
+use App\Models\LabKomp2;
+use App\Models\LabMate1;
 use App\Models\DaftarLab;
+use App\Models\LabIndustri4;
 use Illuminate\Http\Request;
+use App\Models\LabInformatika3;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -26,6 +34,14 @@ class AdminUkk extends Controller
         $lab = DaftarLab::all();
         $sesi = Sesi::all();
         $labKomp1 = LabKomp1::all();
+        $labKomp2 = LabKomp2::all();
+        $labAka1 = LabAka1::all();
+        $labMate1 = LabMate1::all();
+        $labInformatika3 = LabInformatika3::all();
+        $labFeb3 = LabFeb3::all();
+        $labSi4 = LabSi4::all();
+        $labAka4 = LabAka4::all();
+        $labIndustri = LabIndustri4::all();
         // Mengirim data ke view
         return view('admin.index', [
             'users' => $users,
@@ -36,7 +52,16 @@ class AdminUkk extends Controller
             'jadwal' => $jadwal,
             'lab' => $lab,
             'sesi' => $sesi,
-            'labKomp1' => $labKomp1
+            'labKomp1' => $labKomp1,
+            'labKomp2' => $labKomp2,
+            'labAka1' => $labAka1,
+            'labMate1' => $labMate1,
+            'labInformatika3' => $labInformatika3,
+            'labFeb3' => $labFeb3,
+            'labSi4' => $labSi4,
+            'labAka4' => $labAka4,
+            'labIndustri' => $labIndustri,
+            
         ]);
     }
 

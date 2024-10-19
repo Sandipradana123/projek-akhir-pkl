@@ -69,13 +69,93 @@
             </li>
             <li>
                 
-                    <a href="#tabelJadwal"
+                    {{-- <a href="#tabelJadwal"
                         class="flex items-center p-2 rounded-lg hover:bg-gray-600 group"
                         onclick="toggleDropdown('dropdownLab')">
                         <i class="fas fa-calendar-check"></i>
                         <span class="flex-1 ms-3 whitespace-nowrap">Tabel Jadwal</span>
                         <i class="fas fa-chevron-down ml-auto transition-transform" id="iconDropdown"></i>
-                    </a>
+                    </a> --}}
+
+                    <a href="#tabelJadwal"
+        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        onclick="toggleDropdown('dropdownTabelJadwal')">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+            viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+                d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6Zm2 8v-2h7v2H4Zm0 2v2h7v-2H4Zm9 2h7v-2h-7v2Zm7-4v-2h-7v2h7Z"
+                clip-rule="evenodd" />
+        </svg>
+        <span class="flex-1 ms-3 whitespace-nowrap">Tabel Jadwal</span>
+        <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.5 5.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z"/>
+            <path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z"/>
+            <path fill-rule="evenodd" d="M1.5 10.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+    </a>
+    <ul id="dropdownTabelJadwal" class="hidden space-y-2 mt-2">
+        <li>
+            <a href="#subMenu1" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu1')">Sub Menu 1</a>
+        </li>
+        <li>
+            <a href="#subMenu2" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu2')">Sub Menu 2</a>
+        </li>
+    </ul>
+
+    <script>
+         document.addEventListener("DOMContentLoaded", function() {
+    const activeMenu = localStorage.getItem('activeMenu');
+    const activeDropdown = localStorage.getItem('activeDropdown');
+
+    if (activeDropdown) {
+        document.getElementById(activeDropdown).classList.remove('hidden');
+    }
+
+    if (activeMenu) {
+        showContent(activeMenu);
+    }
+});
+
+        function showContent(menuId) {
+    localStorage.setItem('activeMenu', menuId);
+    document.querySelectorAll('#content > div').forEach(content => {
+        content.classList.add('hidden');
+    });
+
+    const selectedContent = document.getElementById(menuId);
+    if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+    }
+
+    document.querySelectorAll('.flex.items-center').forEach(link => {
+        link.classList.remove('bg-gray-100', 'dark:bg-gray-700');
+    });
+
+    const selectedLink = document.querySelector(`a[href="#${menuId}"]`);
+    if (selectedLink) {
+        selectedLink.classList.add('bg-gray-100', 'dark:bg-gray-700');
+    }
+
+    const dropdownId = selectedLink.closest('ul') ? selectedLink.closest('ul').id : null;
+    if (dropdownId) {
+        localStorage.setItem('activeDropdown', dropdownId);
+    }
+}
+
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    dropdown.classList.toggle('hidden');
+
+    if (!dropdown.classList.contains('hidden')) {
+        localStorage.setItem('activeDropdown', dropdownId);
+    } else {
+        localStorage.removeItem('activeDropdown');
+    }
+} 
+    </script>
+
+    
                 
                     <!-- Dropdown yang tersembunyi -->
                     <div id="dropdownLab" class="hidden mt-2 space-y-2 pl-4">

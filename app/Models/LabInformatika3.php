@@ -10,5 +10,5 @@ class LabInformatika3 extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    protected $table = 'data-informatika3';
+    protected $table = 'lab-informatika3';
 }
