@@ -72,6 +72,8 @@ Route::get('/export-jadwal-labTeknikIndustri', [exportController::class, 'export
 
 Route::get('/export-jadwal-labSistemInformasi', [exportController::class, 'exportLabSistemInformasi'])->name('export.labSistemInformasi');
 
+Route::get('/export-jadwal-labProdiAka', [exportController::class, 'exportLabProdiAka'])->name('export.LabProdiAka');
+
 Route::delete('delete-kegiatan/{id}', [DeleteController::class, 'deleteKegiatan'])->name('delete-kegiatan');
 Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])->name('delete-tanggal');
 

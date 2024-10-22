@@ -57,9 +57,21 @@
             <div class="flex items-center mb-4">
                 <button type="submit" class="block text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">Export to Excel</button>
             </div>
-            
-           
         </div>
+        @if (session('dataErrorKomp2'))
+    <div id="alert" class="bg-red-500 text-white p-4 rounded-lg mb-4">
+        {{ session('dataErrorKomp2') }}
+    </div>
+@endif
+
+<script>
+    setTimeout(function() {
+        var alertBox = document.getElementById('alert');
+        if (alertBox) {
+            alertBox.style.display = 'none'; // Menyembunyikan alert
+        }
+    }, 10000); // 20 detik
+</script>
     </form>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400">

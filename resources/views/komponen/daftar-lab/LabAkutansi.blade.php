@@ -9,7 +9,7 @@
             <i class="fas fa-arrow-left"></i>
         </button>
 
-        <form action="{{ route('export.labFeb') }}" method="GET" >
+        <form action="{{ route('export.LabProdiAka') }}" method="GET" >
         <div class="flex gap-12">
             <div class="flex  items-center mb-4">
                 <label for="filterKegiatan" class="mr-2 text-sm font-medium text-gray-700">Kegiatan:</label>
@@ -42,12 +42,30 @@
                 </select>
             </div>
             <div class="flex items-center mb-4">
-                <button type="submit" class="block text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <button type="submit" class="block text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"><i class="fa-solid fa-arrow-right-from-bracket @error('dataError') border-red-500 @enderror"></i>
                 </button>
+                @error('dataError')
+                                        <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
+                                    @enderror
             </div>
             
            
         </div>
+        @if (session('dataErrorProdiAka'))
+    <div id="alert" class="bg-red-500 text-white p-4 rounded-lg mb-4">
+        {{ session('dataErrorProdiAka') }}
+    </div>
+@endif
+
+<script>
+    setTimeout(function() {
+        var alertBox = document.getElementById('alert');
+        if (alertBox) {
+            alertBox.style.display = 'none'; // Menyembunyikan alert
+        }
+    }, 10000); // 20 detik
+</script>
+
     </form>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -98,6 +116,8 @@
     </div>
 
 </div>
+
+
 
 <script>
     document.getElementById('filterKegiatan').addEventListener('change', function() {

@@ -133,6 +133,9 @@
                     <th scope="col" class="px-6 py-3">
                         Password
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
 
                     <th scope="col" class="px-6 py-3 text-center">
                         Action
@@ -160,7 +163,10 @@
                             {{ $dataUser->email }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $dataUser->username }}
+                            {{ $dataUser->password }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $dataUser->status }}
                         </td>
 
                         <td class="px-6 py-4 flex justify-center gap-2">

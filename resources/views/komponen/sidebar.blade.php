@@ -42,7 +42,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Data Tanggal</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="#dataKegiatanakhir"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                     onclick="showContent('dataKegiatanakhir')">
@@ -50,7 +50,7 @@
 
                     <span class="flex-1 ms-3 whitespace-nowrap">Data fix Kegiatan</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="#dataUser"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"

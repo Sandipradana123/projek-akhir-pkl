@@ -99,6 +99,10 @@
                     </th>
 
                     <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+
+                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
@@ -118,6 +122,9 @@
                     </th>
                     <td class="px-6 py-4">
                             {{ $dataJadwal['daftar-jadwal'] }}
+                    </td>
+                    <td class="px-6 py-4">
+                            {{ $dataJadwal->status }}
                     </td>
 
                     <td class="px-6 py-4 flex space-x-2">

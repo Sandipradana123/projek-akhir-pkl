@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('prodi')->nullable();
             $table->string('kategori');
             $table->string('password');
+            $table->string('status');
             $table->rememberToken();
             $table->timestamps();
         });
