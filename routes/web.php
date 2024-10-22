@@ -64,3 +64,5 @@ Route::delete('delete-kegiatan/{id}', [DeleteController::class, 'deleteKegiatan'
 Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])->name('delete-tanggal');
 
 Route::post('/siswa/import', [MhsController::class, 'import'])->name('siswa.import');
+
+Route::post('/labkomp1/import', [MhsController::class, 'importLab1'])->name('labkomp1.import');

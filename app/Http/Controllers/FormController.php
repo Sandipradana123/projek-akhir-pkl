@@ -63,15 +63,34 @@ class FormController extends Controller
 
         //  dd($request->all());
          // Simpan data ke dalam tabel yang dipilih menggunakan Query Builder
-         DB::table($tableName)->insert([
-             'nama' => $request->nama,
-             'email' => $request->email,
-             'nim' => $request->nim,
-             'progam-studi' => $request->prodi,
-             'kegiatan' => $request->kegiatan,
-             'jadwal' => $request->jadwal,
-             'sesi' => $request->sesi,
-         ]);
+          // Menggunakan Transaction agar operasi ke dua tabel atomik (saling bergantung)
+    DB::beginTransaction();
+    try {
+        // Simpan data ke tabel lab yang dipilih
+        DB::table($tableName)->insert([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'nim' => $request->nim,
+            'progam-studi' => $request->prodi,
+            'kegiatan' => $request->kegiatan,
+            'jadwal' => $request->jadwal,
+            'sesi' => $request->sesi,
+        ]);
+
+        // Simpan data ke tabel nim-terdaftar
+        DB::table('nim_terdaftar')->insert([
+            'daftar-nim' => $request->nim,
+            'kegiatan' => $request->kegiatan,
+            
+        ]);
+
+        // Commit transaksi jika kedua operasi berhasil
+        DB::commit();
+    } catch (\Exception $e) {
+        // Rollback jika ada kesalahan
+        DB::rollBack();
+        return redirect()->back()->withErrors(['error' => 'Gagal menyimpan data.'])->withInput();
+    }
 
       
      

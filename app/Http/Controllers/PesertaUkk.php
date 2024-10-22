@@ -32,7 +32,7 @@ class PesertaUkk extends Controller
                 'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, angka, dan simbol (@$!%*#?&).',
             ],
         );
-        dd($request);
+        // dd($request);
         DB::table('users')->insert(values: [
             'username' => $request->nama,
             'nim' => $request->nim,

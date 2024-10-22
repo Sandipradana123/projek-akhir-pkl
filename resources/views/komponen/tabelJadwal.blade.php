@@ -2,7 +2,7 @@
 <div id="lab1">
     <p>Ini adalah konten untuk Lab 1.</p>
 </div>
-<div id="tabelJadwal" class="hidden">
+{{-- <div id="tabelJadwal" class="hidden">
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
@@ -139,7 +139,7 @@
             </table>
         </div>
     </div>
-</div>
+</div> --}}
 
 {{-- <div id="subMenu1" class="hidden">
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
@@ -238,130 +238,139 @@
 
 {{-- lab upt komputer 2 --}}
 @include('komponen.daftar-lab.LabKomp2')
+
+{{-- lab matematika --}}
+@include('komponen.daftar-lab.labMate')
+
+{{-- lab pendidikan akutansi --}}
+@include('komponen.daftar-lab.labPendAka')
+
+{{-- lab pendidikan teknik informatika --}}
+@include('komponen.daftar-lab.LabInformatika')
 <script>
     
 
 
 
-    window.onload = function() {
-        const showTable = localStorage.getItem('showTable');
-        const showMoreContent = localStorage.getItem('showMoreContent');
+    // window.onload = function() {
+    //     const showTable = localStorage.getItem('showTable');
+    //     const showMoreContent = localStorage.getItem('showMoreContent');
 
-        if (showTable === 'true') {
-            document.getElementById('cardContainer').classList.add('hidden');
-            document.getElementById('tableContent').classList.remove('hidden');
-        } else if (showMoreContent === 'true') {
-            document.getElementById('cardContainer').classList.add('hidden');
-            document.getElementById('moreContent').classList.remove('hidden');
-        }
-    };
+    //     if (showTable === 'true') {
+    //         document.getElementById('cardContainer').classList.add('hidden');
+    //         document.getElementById('tableContent').classList.remove('hidden');
+    //     } else if (showMoreContent === 'true') {
+    //         document.getElementById('cardContainer').classList.add('hidden');
+    //         document.getElementById('moreContent').classList.remove('hidden');
+    //     }
+    // };
 
-    function showMore() {
-        localStorage.setItem('showMoreContent', 'true'); // Simpan status di localStorage
-        const cardContainer = document.getElementById('cardContainer');
-        const moreContent = document.getElementById('moreContent');
+    // function showMore() {
+    //     localStorage.setItem('showMoreContent', 'true'); // Simpan status di localStorage
+    //     const cardContainer = document.getElementById('cardContainer');
+    //     const moreContent = document.getElementById('moreContent');
 
-        cardContainer.classList.add('hidden');
-        moreContent.classList.remove('hidden');
-    }
+    //     cardContainer.classList.add('hidden');
+    //     moreContent.classList.remove('hidden');
+    // }
 
-    function showTable() {
-        localStorage.setItem('showTable', 'true'); // Simpan status di localStorage
-        localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
-        const moreContent = document.getElementById('moreContent');
-        const tableContent = document.getElementById('tableContent');
+    // function showTable() {
+    //     localStorage.setItem('showTable', 'true'); // Simpan status di localStorage
+    //     localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
+    //     const moreContent = document.getElementById('moreContent');
+    //     const tableContent = document.getElementById('tableContent');
 
-        moreContent.classList.add('hidden');
-        tableContent.classList.remove('hidden');
-    }
+    //     moreContent.classList.add('hidden');
+    //     tableContent.classList.remove('hidden');
+    // }
 
-    function showBackFromMore() {
-        localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
-        const cardContainer = document.getElementById('cardContainer');
-        const moreContent = document.getElementById('moreContent');
+    // function showBackFromMore() {
+    //     localStorage.removeItem('showMoreContent'); // Hapus status dari localStorage
+    //     const cardContainer = document.getElementById('cardContainer');
+    //     const moreContent = document.getElementById('moreContent');
 
-        cardContainer.classList.remove('hidden');
-        moreContent.classList.add('hidden');
-    }
+    //     cardContainer.classList.remove('hidden');
+    //     moreContent.classList.add('hidden');
+    // }
 
-    function showBackFromTable() {
-        localStorage.removeItem('showTable'); // Hapus status dari localStorage
-        const cardContainer = document.getElementById('cardContainer');
-        const moreContent = document.getElementById('moreContent');
-        const tableContent = document.getElementById('tableContent');
+    // function showBackFromTable() {
+    //     localStorage.removeItem('showTable'); // Hapus status dari localStorage
+    //     const cardContainer = document.getElementById('cardContainer');
+    //     const moreContent = document.getElementById('moreContent');
+    //     const tableContent = document.getElementById('tableContent');
 
-        cardContainer.classList.remove('hidden');
-        moreContent.classList.add('hidden');
-        tableContent.classList.add('hidden');
-    }
+    //     cardContainer.classList.remove('hidden');
+    //     moreContent.classList.add('hidden');
+    //     tableContent.classList.add('hidden');
+    // }
 
-    document.getElementById('filterKegiatan').addEventListener('change', function() {
-        const selectedKegiatan = this.value.toLowerCase();
+    // document.getElementById('filterKegiatan').addEventListener('change', function() {
+    //     const selectedKegiatan = this.value.toLowerCase();
 
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const kegiatan = row.getAttribute('data-kegiatan').toLowerCase();
-            if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
+    //     // Filter baris pada tabel
+    //     document.querySelectorAll('.row-item').forEach(row => {
+    //         const kegiatan = row.getAttribute('data-kegiatan').toLowerCase();
+    //         if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
+    //             row.style.display = "";
+    //         } else {
+    //             row.style.display = "none";
+    //         }
+    //     });
 
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const kegiatan = card.getAttribute('data-jadwal').toLowerCase();
-            if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-    document.getElementById('filterTanggal').addEventListener('change', function() {
-        const selectedTanggal = this.value.toLowerCase();
+    //     // Filter kartu kegiatan
+    //     document.querySelectorAll('.card-item').forEach(card => {
+    //         const kegiatan = card.getAttribute('data-jadwal').toLowerCase();
+    //         if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
+    //             card.style.display = "";
+    //         } else {
+    //             card.style.display = "none";
+    //         }
+    //     });
+    // });
+    // document.getElementById('filterTanggal').addEventListener('change', function() {
+    //     const selectedTanggal = this.value.toLowerCase();
 
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const tanggal = row.getAttribute('data-tanggal').toLowerCase();
-            if (selectedTanggal === "" || tanggal.includes(selectedTanggal)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
+    //     // Filter baris pada tabel
+    //     document.querySelectorAll('.row-item').forEach(row => {
+    //         const tanggal = row.getAttribute('data-tanggal').toLowerCase();
+    //         if (selectedTanggal === "" || tanggal.includes(selectedTanggal)) {
+    //             row.style.display = "";
+    //         } else {
+    //             row.style.display = "none";
+    //         }
+    //     });
 
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const kegiatan = card.getAttribute('data-kegiatan').toLowerCase();
-            if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-    document.getElementById('filterSesi').addEventListener('change', function() {
-        const selectedSesi = this.value.toLowerCase()
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const sesi = row.getAttribute('data-sesi').toLowerCase();
-            if (selectedSesi === "" || sesi.includes(selectedSesi)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
+    //     // Filter kartu kegiatan
+    //     document.querySelectorAll('.card-item').forEach(card => {
+    //         const kegiatan = card.getAttribute('data-kegiatan').toLowerCase();
+    //         if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
+    //             card.style.display = "";
+    //         } else {
+    //             card.style.display = "none";
+    //         }
+    //     });
+    // });
+    // document.getElementById('filterSesi').addEventListener('change', function() {
+    //     const selectedSesi = this.value.toLowerCase()
+    //     // Filter baris pada tabel
+    //     document.querySelectorAll('.row-item').forEach(row => {
+    //         const sesi = row.getAttribute('data-sesi').toLowerCase();
+    //         if (selectedSesi === "" || sesi.includes(selectedSesi)) {
+    //             row.style.display = "";
+    //         } else {
+    //             row.style.display = "none";
+    //         }
+    //     });
 
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const sesi = card.getAttribute('data-sesi').toLowerCase();
-            if (selectedSesi === "" || kegiatan.includes(selectedSesi)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
+    //     // Filter kartu kegiatan
+    //     document.querySelectorAll('.card-item').forEach(card => {
+    //         const sesi = card.getAttribute('data-sesi').toLowerCase();
+    //         if (selectedSesi === "" || kegiatan.includes(selectedSesi)) {
+    //             card.style.display = "";
+    //         } else {
+    //             card.style.display = "none";
+    //         }
+    //     });
+    // });
     
 </script>

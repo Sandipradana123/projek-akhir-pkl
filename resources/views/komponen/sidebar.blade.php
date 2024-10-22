@@ -96,10 +96,31 @@
     </a>
     <ul id="dropdownTabelJadwal" class="hidden space-y-2 mt-2">
         <li>
-            <a href="#subMenu1" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu1')">Sub Menu 1</a>
+            <a href="#subMenu1" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu1')">Lab upt komputer 1</a>
         </li>
         <li>
-            <a href="#subMenu2" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu2')">Sub Menu 2</a>
+            <a href="#tabelJadwal" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu2')">Lab upt komputer 2</a>
+        </li>
+        <li>
+            <a href="#tabelLabMtk" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu3')">Lab matematika</a>
+        </li>
+        <li>
+            <a href="#tabelPendidikanAkutansi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu4')">Lab pendidikan akutansi</a>
+        </li>
+        <li>
+            <a href="#tabelTeknikInformatika" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu5')">Lab Teknik informatika</a>
+        </li>
+        <li>
+            <a href="#tabelFeb" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu6')">Lab Feb</a>
+        </li>
+        <li>
+            <a href="#tabelTeknikIndustri" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu7')">Lab Teknik industri</a>
+        </li>
+        <li>
+            <a href="#tabelAkutansi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu8')">Lab akutansi</a>
+        </li>
+        <li>
+            <a href="#tabelSistemInformasi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu9')">Lab sistem informasi</a>
         </li>
     </ul>
 

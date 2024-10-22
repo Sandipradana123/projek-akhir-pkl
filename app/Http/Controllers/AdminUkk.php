@@ -33,15 +33,15 @@ class AdminUkk extends Controller
         $jadwal  = Jadwal::all();
         $lab = DaftarLab::all();
         $sesi = Sesi::all();
-        $labKomp1 = LabKomp1::all();
-        $labKomp2 = LabKomp2::all();
-        $labAka1 = LabAka1::all();
-        $labMate1 = LabMate1::all();
-        $labInformatika3 = LabInformatika3::all();
-        $labFeb3 = LabFeb3::all();
-        $labSi4 = LabSi4::all();
-        $labAka4 = LabAka4::all();
-        $labIndustri = LabIndustri4::all();
+        $labKomp1 = LabKomp1::paginate(10);
+        $labKomp2 = LabKomp2::paginate(10);
+        $labAka1 = LabAka1::paginate(10);
+        $labMate1 = LabMate1::paginate(10);
+        $labInformatika3 = LabInformatika3::paginate(10);
+        $labFeb3 = LabFeb3::paginate(10);
+        $labSi4 = LabSi4::paginate(10);
+        $labAka4 = LabAka4::paginate(10);
+        $labIndustri = LabIndustri4::paginate(10);
         // Mengirim data ke view
         return view('admin.index', [
             'users' => $users,

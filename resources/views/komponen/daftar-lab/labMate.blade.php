@@ -1,6 +1,5 @@
 @include('komponen.style')
-{{-- @include('komponen.daftar-lab.filter') --}}
-<div id="subMenu1" class="hidden">
+<div id="subMenu3" class="hidden">
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
@@ -8,19 +7,8 @@
         <button onclick="showBackFromTable()"
             class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mb-6">
             <i class="fas fa-arrow-left"></i>
+
         </button>
-        {{-- <div>
-            <form class="max-w-[300px] mx-auto" action="{{ route('labkomp1.import') }}" method="POST" enctype="multipart/form-data" >
-                @csrf
-                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
-                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" name="file">
-                <div>
-                    <button type="submit"
-                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirm</button>
-                </div>
-                
-              </form>
-        </div> --}}
 
         <form action="{{ url('/export-jadwal') }}" method="GET" >
         <div class="flex gap-12">
@@ -78,7 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($labKomp1 as $lab1)
+                    @foreach ($labMate1 as $lab1)
                         <tr class="row-item odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                         data-kegiatan="{{ $lab1->kegiatan }}"
                         data-tanggal="{{ $lab1->jadwal }}"
@@ -97,14 +85,11 @@
                                     <i class="fas fa-edit"></i><!-- Font Awesome 6 -->
                                 </button>
                             </td>
-                            
                         </tr>
                     @endforeach
                     <div class="mt-4 mb-5">
-                        {{ $labKomp1->onEachSide(1)->links() }}
+                        {{ $labMate1->onEachSide(1)->links() }}
                     </div>
-                    
-                    
                 </tbody>
             </table>
       
@@ -112,7 +97,7 @@
 
 </div>
 
-{{-- <script>
+<script>
     document.getElementById('filterKegiatan').addEventListener('change', function() {
         const selectedKegiatan = this.value.toLowerCase();
 
@@ -181,5 +166,5 @@
             }
         });
     });
-</script> --}}
+</script>
 

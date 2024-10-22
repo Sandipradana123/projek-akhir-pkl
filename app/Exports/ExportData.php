@@ -22,6 +22,6 @@ class ExportData implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return ['Nama', 'NIM', 'Program Studi'];
+        return ['No','Nama', 'NIM', 'Program Studi'];
     }
 }
