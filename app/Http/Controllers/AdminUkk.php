@@ -40,6 +40,7 @@ class AdminUkk extends Controller
         $labInformatika3 = LabInformatika3::paginate(10);
         $labFeb3 = LabFeb3::paginate(10);
         $labSi4 = LabSi4::paginate(10);
+
         $labAka4 = LabAka4::paginate(10);
         $labIndustri = LabIndustri4::paginate(10);
         // Mengirim data ke view

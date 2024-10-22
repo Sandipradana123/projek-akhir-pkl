@@ -4,7 +4,7 @@
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
-        <h1 class="text-3xl font-bold mb-4 text-center">Tabel Informasi</h1>
+        <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Lab upt komputer 1</h1>
         <button onclick="showBackFromTable()"
             class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mb-6">
             <i class="fas fa-arrow-left"></i>
@@ -78,12 +78,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $no = ($labKomp1->currentPage() - 1) * $labKomp1->perPage() + 1
+                    @endphp
+                      
                     @foreach ($labKomp1 as $lab1)
                         <tr class="row-item odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                         data-kegiatan="{{ $lab1->kegiatan }}"
                         data-tanggal="{{ $lab1->jadwal }}"
                         data-sesi="{{ $lab1->sesi }}">
-                            <th class="px-6 py-4">{{ $lab1->id }}</th>
+                        <th class="px-6 py-4">{{ $no++ }}</th>
                             <th class="px-6 py-4">{{ $lab1->nama }}</th>
                             <td class="px-6 py-4 truncate max-w-[100px]">{{ $lab1->email }}</td>
                             <td class="px-6 py-4">{{ $lab1->nim }}</td>

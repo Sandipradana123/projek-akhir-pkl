@@ -117,11 +117,12 @@
             <a href="#tabelTeknikIndustri" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu7')">Lab Teknik industri</a>
         </li>
         <li>
-            <a href="#tabelAkutansi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu8')">Lab akutansi</a>
+            <a href="#tabelSistemInformasi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu8')">Lab sistem informasi</a>
         </li>
         <li>
-            <a href="#tabelSistemInformasi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu9')">Lab sistem informasi</a>
+            <a href="#tabelAkutansi" class="flex items-center p-2 text-gray-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group" onclick="showContent('subMenu9')">Lab akutansi</a>
         </li>
+        
     </ul>
 
     <script>

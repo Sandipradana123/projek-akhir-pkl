@@ -59,6 +59,18 @@ Route::get('/getSeats', [HomeController::class, 'getSeats'])->name('getSeats');
 Route::get('/export', [exportController::class, 'export']);
 
 Route::get('/export-jadwal', [exportController::class, 'export']);
+Route::get('/export-jadwal-labUptKomp2', [exportController::class, 'exportLabUptKomp2'])->name('export.labUptKomp2');
+
+Route::get('/export-jadwal-labMate', [exportController::class, 'exportLabMate'])->name('export.labMate');
+Route::get('/export-jadwal-labPendAka', [exportController::class, 'exportLabPendAka'])->name('export.labPendAka');
+
+Route::get('/export-jadwal-labInformatika', [exportController::class, 'exportLabInformatika'])->name('export.labInformatika');
+
+Route::get('/export-jadwal-labFeb', [exportController::class, 'exportLabFeb'])->name('export.labFeb');
+
+Route::get('/export-jadwal-labTeknikIndustri', [exportController::class, 'exportLabTeknikIndustri'])->name('export.labTeknikIndustri');
+
+Route::get('/export-jadwal-labSistemInformasi', [exportController::class, 'exportLabSistemInformasi'])->name('export.labSistemInformasi');
 
 Route::delete('delete-kegiatan/{id}', [DeleteController::class, 'deleteKegiatan'])->name('delete-kegiatan');
 Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])->name('delete-tanggal');

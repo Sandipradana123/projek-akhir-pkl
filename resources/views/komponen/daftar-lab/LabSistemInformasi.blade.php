@@ -1,16 +1,15 @@
 @include('komponen.style')
-<div id="subMenu5" class="hidden">
+<div id="subMenu8" class="hidden">
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
-        <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Lab teknik informatika</h1>
+        <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Lab sistem informasi</h1>
         <button onclick="showBackFromTable()"
             class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mb-6">
             <i class="fas fa-arrow-left"></i>
-
         </button>
 
-        <form action="{{ route('export.labInformatika') }}" method="GET" >
+        <form action="{{ route('export.labSistemInformasi') }}" method="GET" >
         <div class="flex gap-12">
             <div class="flex  items-center mb-4">
                 <label for="filterKegiatan" class="mr-2 text-sm font-medium text-gray-700">Kegiatan:</label>
@@ -67,9 +66,9 @@
                 </thead>
                 <tbody>
                     @php
-                        $no = ($labInformatika3->currentPage() - 1) * $labInformatika3->perPage() + 1
+                        $no = ($labSi4->currentPage() - 1) * $labSi4->perPage() + 1
                     @endphp
-                    @foreach ($labInformatika3 as $lab1)
+                    @foreach ($labSi4 as $lab1)
                         <tr class="row-item odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                         data-kegiatan="{{ $lab1->kegiatan }}"
                         data-tanggal="{{ $lab1->jadwal }}"
@@ -91,8 +90,9 @@
                         </tr>
                     @endforeach
                     <div class="mt-4 mb-5">
-                        {{ $labMate1->onEachSide(1)->links() }}
+                        {{ $labSi4->onEachSide(1)->links() }}
                     </div>
+                    {{-- <p>Total Data: {{ $labSi4->total() }}</p> --}}
                 </tbody>
             </table>
       

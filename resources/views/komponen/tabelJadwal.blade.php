@@ -247,6 +247,21 @@
 
 {{-- lab pendidikan teknik informatika --}}
 @include('komponen.daftar-lab.LabInformatika')
+
+
+{{-- lab fakultas ekonomi bisnis --}}
+@include('komponen.daftar-lab.labFeb')
+
+{{-- lab teknik industri --}}
+@include('komponen.daftar-lab.LabTeknikIndustri')
+
+
+{{-- lab sistem informasi --}}
+@include('komponen.daftar-lab.LabSistemInformasi')
+
+
+{{-- lab prodi akutansi --}}
+@include('komponen.daftar-lab.LabAkutansi')
 <script>
     
 

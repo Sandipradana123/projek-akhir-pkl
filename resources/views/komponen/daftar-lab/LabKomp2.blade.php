@@ -3,13 +3,26 @@
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
-        <h1 class="text-3xl font-bold mb-4 text-center">Tabel Informasi</h1>
+        <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Lab upt komputer 2</h1>
         <button onclick="showBackFromTable()"
             class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mb-6">
             Kembali
         </button>
 
-        <form action="{{ url('/export-jadwal') }}" method="GET" >
+        <div>
+            <form class="max-w-[300px] mx-auto" action="{{ route('labkomp1.import') }}" method="POST" enctype="multipart/form-data" >
+                @csrf
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
+                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" name="file">
+                <div>
+                    <button type="submit"
+                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirm</button>
+                </div>
+                
+              </form>
+        </div>
+
+        <form action="{{ route('export.labUptKomp2') }}" method="GET" >
         <div class="flex gap-12">
             <div class="flex  items-center mb-4">
                 <label for="filterKegiatan" class="mr-2 text-sm font-medium text-gray-700">Kegiatan:</label>
@@ -64,12 +77,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $no = ($labKomp2->currentPage() - 1) * $labKomp2->perPage() + 1
+                    @endphp
                     @foreach ($labKomp2 as $lab1)
                         <tr class="row-item odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                         data-kegiatan="{{ $lab1->kegiatan }}"
                         data-tanggal="{{ $lab1->jadwal }}"
                         data-sesi="{{ $lab1->sesi }}">
-                            <th class="px-6 py-4">{{ $lab1->id }}</th>
+                            <th class="px-6 py-4">{{ $no++ }}</th>
                             <th class="px-6 py-4">{{ $lab1->nama }}</th>
                             <td class="px-6 py-4 truncate max-w-[100px]">{{ $lab1->email }}</td>
                             <td class="px-6 py-4">{{ $lab1->nim }}</td>
