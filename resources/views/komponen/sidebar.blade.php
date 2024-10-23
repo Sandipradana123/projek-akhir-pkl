@@ -202,13 +202,22 @@ function toggleDropdown(dropdownId) {
                 
             </li>
             <li>
-                <a href="#logout"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                    onclick="showPopup()">
-                    <i class="fas fa-sign-out-alt"></i> <!-- Logout -->
+                
 
-                    <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
-                </a>
+                <a href="#"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> <!-- Logout -->
+                <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+             </a>
+             
+             <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" class="hidden">
+                 @csrf
+             </form>
+             
+
+
+                
             </li>
         </ul>
     </div>

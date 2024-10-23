@@ -112,8 +112,8 @@
                                                             lab : </label>
                                                         <select name="status"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
-                                                            <option value="Aktif">Aktif</option>
-                                                            <option value="Non aktif">Non aktif</option>
+                                                            <option value="aktif" {{ $dataLab->status == 'aktif' ? 'selected' : '' }}>aktif</option>
+                                                            <option value="non aktif" {{ $dataLab->status == 'non aktif' ? 'selected' :'' }}>non aktif</option>
                                                         </select>
                                                     </div>
 

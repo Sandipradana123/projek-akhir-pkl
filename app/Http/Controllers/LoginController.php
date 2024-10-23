@@ -49,4 +49,18 @@ class LoginController extends Controller
             return back()->withErrors('Email atau password salah');
         }
     }
+
+    
+    public function logout(Request $request)
+{
+    Auth::logout();                // Logout user
+    $request->session()->invalidate();  // Hapus session
+    $request->session()->regenerateToken(); // Regenerasi CSRF token
+
+    return redirect()->route('/');  // Arahkan ke halaman login
+}
+
+
+
+
 }

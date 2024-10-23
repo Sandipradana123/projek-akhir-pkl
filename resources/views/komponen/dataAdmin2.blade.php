@@ -234,13 +234,16 @@
                             </div>
 
 
-                            <button data-modal-target="popup-modal-admin{{ $dataAdmin->id }}" data-modal-toggle="popup-modal-{{ $dataAdmin->id }}"
+                            <button data-modal-target="popup-modal-hapus{{ $dataAdmin->id }}" data-modal-toggle="popup-modal-hapus{{ $dataAdmin->id }}"
                                
                                 type="button">
                                 <i class="fas fa-trash-alt"></i> <!-- Font Awesome 5 -->
                             </button>
-                            <div id="popup-modal-admin{{ $dataAdmin->id }}" tabindex="-1"
+                            <div id="popup-modal-hapus{{ $dataAdmin->id }}" tabindex="-1"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                <form action="{{ route('delete-admin',$dataAdmin->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
                                 <div class="relative p-4 w-full max-w-md max-h-full">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                         <button type="button"
@@ -265,7 +268,7 @@
                                             </svg>
                                             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
                                                 Apakah kamu yakin untuk menghapus Akun {{ $dataAdmin->username }}</h3>
-                                            <button data-modal-hide="popup-modal-admin1" type="button"
+                                            <button data-modal-hide="popup-modal-admin1" type="submit"
                                                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                                                 Yakin
                                             </button>
@@ -274,6 +277,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                         </td>
                     </tr>

@@ -36,7 +36,7 @@
                             <div>
                                 <label for="" class="text-base font-medium text-gray-900 "> Email address </label>
                                 <div class="mt-2.5">
-                                    <input type="email" name="email" id="" placeholder="Masukkan Email Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('email') border-red-500 @enderror" value="{{ old('email') }}"/>
+                                    <input type="email" name="email" id="" autocomplete="off" placeholder="Masukkan Email Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('email') border-red-500 @enderror" value="{{ old('email') }}"/>
                                     @error('email')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
                                     @enderror
@@ -52,7 +52,7 @@
                                     <a href="#" title="" class="text-sm font-medium transition-all duration-200 text-rose-500 hover:text-rose-600 focus:text-rose-600 hover:underline"> Forgot password? </a>
                                 </div>
                                 <div class="mt-2.5">
-                                    <input type="password" name="password" id="" placeholder="Masukkan Password Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('password') border-red-500 @enderror" />
+                                    <input type="password" name="password" id="" autocomplete="off" placeholder="Masukkan Password Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('password') border-red-500 @enderror" />
                                     @error('password')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
                                     @enderror

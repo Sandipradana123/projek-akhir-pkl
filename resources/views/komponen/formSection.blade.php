@@ -16,7 +16,7 @@
                 <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">Form Input Posisi Lab</h2>
                 <div
                     class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 mt-3 dark:bg-gray-800 dark:border-gray-700">
-                    <form action="{{ route('post-form') }}" method="POST" class="mt-2">
+                    <form action="{{ route('pendaftaran-ukk') }}" method="POST" class="mt-2">
                         @csrf
                         <div class="space-y-5">
                             <div>

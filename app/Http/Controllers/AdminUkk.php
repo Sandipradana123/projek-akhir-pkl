@@ -29,7 +29,7 @@ class AdminUkk extends Controller
         $admin = User::where('kategori', 'admin')->get();
         $prodi = DB::table('prodi')->pluck('daftar-prodi');
         $daftarKegiatan = DB::table('kegiatan')->pluck('daftar-kegiatan');
-        $kegiatan  = Kegiatan::all();
+        $kegiatan  = Kegiatan::all()->unique('daftar-kegiatan');
         $jadwal  = Jadwal::all();
         $lab = DaftarLab::all();
         $sesi = Sesi::all();

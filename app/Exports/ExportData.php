@@ -4,8 +4,9 @@ namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
 
-class ExportData implements FromCollection, WithHeadings
+class ExportData implements FromCollection, WithHeadings,WithMapping
 {
     protected $data;
 
@@ -23,5 +24,16 @@ class ExportData implements FromCollection, WithHeadings
     public function headings(): array
     {
         return ['No','Nama', 'NIM', 'Program Studi'];
+    }
+
+    public function map($row): array
+    {
+        static $number = 1;  // Inisialisasi nomor urut mulai dari 1
+        return [
+            $number++,          // Kolom No (berurutan)
+            $row->nama,         // Kolom Nama
+            $row->nim,          // Kolom NIM
+            $row['progam-studi'] // Kolom Program Studi
+        ];
     }
 }
