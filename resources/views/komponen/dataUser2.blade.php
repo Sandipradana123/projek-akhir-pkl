@@ -5,12 +5,74 @@
     <div class="flex justify-end mb-4 mt-6">
 
         <!-- modal saat button tambah user di klik -->
-        <!-- Modal toggle -->
-        <button data-modal-target="authentication-modal-user" data-modal-toggle="authentication-modal-user"
-            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            type="button">
-            <i class="fas fa-plus"></i> <!-- Ikon Font Awesome Plus -->
-        </button>
+        <div class="mx-5">
+            <button data-modal-target="authentication-modal-import-excel"
+                data-modal-toggle="authentication-modal-import-excel"
+                class="block text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button">
+                <i class="fas fa-file-excel"></i>
+            </button>
+        </div>
+
+        <div>
+            <button data-modal-target="authentication-modal-user" data-modal-toggle="authentication-modal-user"
+                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button">
+                <i class="fas fa-plus"></i> <!-- Ikon Font Awesome Plus -->
+            </button>
+        </div>
+
+        {{-- form import excel --}}
+        <div id="authentication-modal-import-excel" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-md max-h-full 
+">
+                {{-- awal modal tambah user --}}
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Import data excel
+                        </h3>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-4 md:p-5">
+                        <form class="space-y-4" action="{{ route('import.AkunMahasiswa') }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div>
+
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    for="file_input">Upload file</label>
+                                <input
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    name="file" aria-describedby="file_input_help" id="file_input" type="file">
+                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">xlxc.</p>
+
+                                @error('nama')
+                                    <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <button type="submit"
+                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan</button>
+                        </form>
+                    </div>
+                </div>
+                {{-- <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    @if ($errors->any())
+                        const modal = document.getElementById('authentication-modal-user');
+                        modal.classList.remove('hidden');
+                    @endif
+                });
+            </script> --}}
+
+                {{-- akhir modal tambah user --}}
+            </div>
+        </div>
+
+
 
         <!-- Main modal -->
         <div id="authentication-modal-user" tabindex="-1" aria-hidden="true"
@@ -43,7 +105,7 @@
                                 <label for="nama"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                     Admin</label>
-                                <input id="nama" type="text" name="nama"
+                                <input id="nama" type="text" name="nama" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('nama') border-red-500 @enderror"
                                     placeholder="Nama" />
                                 @error('nama')
@@ -53,7 +115,7 @@
                             <div>
                                 <label for="nim"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIM</label>
-                                <input id="nim" type="text" name="nim"
+                                <input id="nim" type="text" name="nim" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('nim') border-red-500 @enderror"
                                     placeholder="Nim" />
                                 @error('nim')
@@ -67,22 +129,22 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                                     name="prodi">
                                     @foreach ($prodi as $daftarProdi)
-                                    <option value="{{ $daftarProdi }}">{{ $daftarProdi }}</option>
+                                        <option value="{{ $daftarProdi }}">{{ $daftarProdi }}</option>
                                     @endforeach
-                                    
+
                                 </select>
                             </div>
                             <div>
                                 <label for="email"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input id="email" type="email" name="email"
+                                <input id="email" type="email" name="email" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     placeholder="Email" />
                             </div>
                             <div>
                                 <label for="password"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                <input id="password" type="text" name="password"
+                                <input id="password" type="text" name="password" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     placeholder="Password" />
                             </div>
@@ -124,10 +186,10 @@
                     <th scope="col" class="px-6 py-3">
                         Nim
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-1 py-3">
                         Prodi
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-1 py-3">
                         Email
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -143,41 +205,43 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $no = ($users->currentPage() - 1) * $users->perPage() + 1;
+                @endphp
                 @foreach ($users as $dataUser)
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th class="px-6 py-4">
-                            {{ $dataUser->id }}
+                            {{ $no++ }}
                         </th>
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row" class="px-1 py-4  whitespace-normal break-words ">
                             {{ $dataUser->username }}
                         </th>
-                        <td class="px-6 py-4">
+
+                        <td class="px-6 py-6 whitespace-normal break-words">
                             {{ $dataUser->nim }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-1 py-6 whitespace-normal break-words">
                             {{ $dataUser->prodi }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-1 py-6 whitespace-normal break-words">
                             {{ $dataUser->email }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-6 whitespace-normal break-words">
                             {{ $dataUser->password }}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-6">
                             {{ $dataUser->status }}
                         </td>
 
                         <td class="px-6 py-4 flex justify-center gap-2">
-                            <button data-modal-target="authentication/{{ $dataUser->id }}"
-                                data-modal-toggle="authentication-modal-user-edit2"
-                                type="button">
+                            <button data-modal-target="authentication-modal-edit{{ $dataUser->id }}"
+                                data-modal-toggle="authentication-modal-edit{{ $dataUser->id }}" type="button">
                                 <i class="fas fa-edit"></i><!-- Font Awesome 6 -->
                             </button>
 
                             {{-- modal edit --}}
-                            <div id="authentication/{{ $dataUser->id }}" tabindex="-1" aria-hidden="true"
+                            <div id="authentication-modal-edit{{ $dataUser->id }}" tabindex="-1" aria-hidden="true"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                 <div class="relative p-4 w-full max-w-md max-h-full">
                                     <!-- Modal content -->
@@ -203,21 +267,22 @@
                                         </div>
                                         <!-- Modal body -->
                                         <div class="p-4 md:p-5">
-                                            <form class="space-y-4" action="" method="POST">
+                                            <form class="space-y-4" action="{{ route('edit-user',$dataUser->id) }}" method="POST">
                                                 @csrf
+                                                @method('PUT')
                                                 <div>
                                                     <label for="nama"
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                                         User</label>
                                                     <input id="nama" type="text" name="nama"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                                        placeholder="Nama" required />
+                                                        value="{{ $dataUser->username }}" required />
                                                 </div>
                                                 <div>
                                                     <label for="nim"
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIM
                                                     </label>
-                                                    <input id="nim" type="text" name="nim"
+                                                    <input id="nim" typ`e="text" name="nim"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                                         value="{{ $dataUser->nim }}" required />
                                                 </div>
@@ -227,24 +292,39 @@
                                                     <select
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
                                                         name="prodi">
-                                                        <option value="matematika">Matematika</option>
-                                                        <option value="sistem informasi">Sistem Informasi</option>
-                                                        <option value="informatika">Informatika</option>
+                                                        @foreach ($prodi as $item)
+                                                        
+                                                        <option value="{{ $item }}" {{ ($dataUser->prodi ?? '') == $item ? 'selected' : '' }}>
+                                                            {{ $item }}
+                                                        </option>                                                       
+                                                        @endforeach
                                                     </select>
                                                 </div>
+                                                
                                                 <div>
                                                     <label for="email"
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                                    <input id="email" type="text"
+                                                    <input id="email" type="text" name="email"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                                        placeholder="Email" />
+                                                        value="{{ $dataUser->email }}" />
                                                 </div>
                                                 <div>
                                                     <label for="password"
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                                    <input id="password" type="text"
+                                                    <input id="password" type="text" name="password"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                                        placeholder="Password" />
+                                                        value="{{ $dataUser->password }}"/>
+                                                </div>
+
+                                                <div class="mt-5">
+                                                    <label
+                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                                    <select
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                                                        name="status">
+                                                        <option value="aktif" {{ $dataUser->status == 'aktif' ? 'selected' : '' }}>aktif</option>
+                                                        <option value="non aktif" {{ $dataUser->status == 'non aktif' ? 'selected' : '' }}>non aktif</option>
+                                                    </select>
                                                 </div>
 
                                                 <button type="submit" data-id="{{ $dataUser->id }}"
@@ -291,10 +371,10 @@
 
 
                             <!-- Button Hapus -->
-                            <button data-modal-target="popup-modal-user1" data-modal-toggle="popup-modal-user1"
+                            {{-- <button data-modal-target="popup-modal-user1" data-modal-toggle="popup-modal-user1"
                                 type="button">
                                 <i class="fas fa-trash-alt"></i> <!-- Font Awesome 5 -->
-                            </button>
+                            </button> --}}
                             <div id="popup-modal-user1" tabindex="-1"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                 <div class="relative p-4 w-full max-w-md max-h-full">
@@ -336,7 +416,9 @@
                 @endforeach
 
 
-
+                <div class="mt-4 mb-5">
+                    {{ $users->onEachSide(1)->links() }}
+                </div>
             </tbody>
         </table>
     </div>

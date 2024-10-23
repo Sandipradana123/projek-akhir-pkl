@@ -10,43 +10,56 @@
 
         </button>
 
-        <form action="{{ route('export.labMate') }}" method="GET" >
-        <div class="flex gap-12">
-            <div class="flex  items-center mb-4">
-                <label for="filterKegiatan" class="mr-2 text-sm font-medium text-gray-700">Kegiatan:</label>
-                <select id="filterKegiatan" class="border border-gray-300 text-sm rounded-lg p-2" name="kegiatan">
-                    <option value="">Semua</option>
-                    @foreach ($kegiatan as $daftarKegiatan)
-                        <option value="{{ $daftarKegiatan['daftar-kegiatan'] }}">
-                            {{ $daftarKegiatan['daftar-kegiatan'] }}</option>
-                    @endforeach
-                </select>
+        <form action="{{ route('export.labMate') }}" method="GET" class="p-4">
+            <div class="flex flex-col md:flex-row md:gap-12">
+                <!-- Kegiatan -->
+                <div class="flex flex-col md:flex-row md:items-center mb-4">
+                    <label for="filterKegiatan" class="mb-2 md:mb-0 md:mr-2 text-sm font-medium text-gray-700">Kegiatan:</label>
+                    <select id="filterKegiatan" class="border border-gray-300 text-sm rounded-lg p-2 w-full md:w-auto" name="kegiatan">
+                        <option value="">Semua</option>
+                        @foreach ($kegiatan as $daftarKegiatan)
+                            <option value="{{ $daftarKegiatan['daftar-kegiatan'] }}">
+                                {{ $daftarKegiatan['daftar-kegiatan'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+        
+                <!-- Jadwal -->
+                <div class="flex flex-col md:flex-row md:items-center mb-4">
+                    <label for="filterTanggal" class="mb-2 md:mb-0 md:mr-2 text-sm font-medium text-gray-700">Jadwal:</label>
+                    <select id="filterTanggal" class="border border-gray-300 text-sm rounded-lg p-2 w-full md:w-auto" name="tanggal">
+                        <option value="">Semua</option>
+                        @foreach ($jadwal as $daftarTanggal)
+                            <option value="{{ $daftarTanggal['daftar-jadwal'] }}">
+                                {{ $daftarTanggal['daftar-jadwal'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+        
+                <!-- Sesi -->
+                <div class="flex flex-col md:flex-row md:items-center mb-4">
+                    <label for="filterSesi" class="mb-2 md:mb-0 md:mr-2 text-sm font-medium text-gray-700">Sesi:</label>
+                    <select id="filterSesi" class="border border-gray-300 text-sm rounded-lg p-2 w-full md:w-auto" name="sesi">
+                        <option value="">Semua</option>
+                        @foreach ($sesi as $daftarSesi)
+                            <option value="{{ $daftarSesi['daftar-sesi'] }}">
+                                {{ $daftarSesi['daftar-sesi'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+        
+                <!-- Submit Button -->
+                <div class="flex items-center mb-4">
+                    <button type="submit" class="block text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
             </div>
-            <div class="flex items-center mb-4">
-                <label for="filterTanggal" class="mr-2 text-sm font-medium text-gray-700">Jadwal</label>
-                <select id="filterTanggal" class="border border-gray-300 text-sm rounded-lg p-2" name="tanggal">
-                    <option value="">Semua</option>
-                    @foreach ($jadwal as $daftarTanggal)
-                        <option value="{{ $daftarTanggal['daftar-jadwal'] }}">
-                            {{ $daftarTanggal['daftar-jadwal'] }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="flex items-center mb-4">
-                <label for="filterSesi" class="mr-2 text-sm font-medium text-gray-700">Sesi</label>
-                <select id="filterSesi" class="border border-gray-300 text-sm rounded-lg p-2" name="sesi">
-                    <option value="">Semua</option>
-                    @foreach ($sesi as $daftarSesi)
-                        <option value="{{ $daftarSesi['daftar-sesi'] }}">
-                            {{ $daftarSesi['daftar-sesi'] }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="flex items-center mb-4">
-                <button type="submit" class="block text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"><i class="fa-solid fa-arrow-right-from-bracket"></i>
-                </button>
-            </div>
-        </div>
+        </form>
+       
         @if (session('dataErrorMate'))
     <div id="alert" class="bg-red-500 text-white p-4 rounded-lg mb-4">
         {{ session('dataErrorMate') }}
@@ -61,7 +74,7 @@
         }
     }, 10000); // 20 detik
 </script>
-    </form>
+    
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -74,7 +87,7 @@
                         <th scope="col" class="px-6 py-3">Kegiatan</th>
                         <th scope="col" class="px-6 py-3">Tanggal</th>
                         <th scope="col" class="px-6 py-3">Sesi</th>
-                        <th scope="col" class="px-6 py-3">Action</th>
+                        {{-- <th scope="col" class="px-6 py-3">Action</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -94,12 +107,12 @@
                             <td class="px-6 py-4">{{ $lab1->kegiatan }}</td>
                             <td class="px-6 py-4">{{ $lab1->jadwal }}</td>
                             <td class="px-6 py-4">{{ $lab1->sesi }}</td>
-                            <td class="px-6 py-4 flex space-x-2">
+                            {{-- <td class="px-6 py-4 flex space-x-2">
                                 <button
                                     >
                                     <i class="fas fa-edit"></i><!-- Font Awesome 6 -->
                                 </button>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                     <div class="mt-4 mb-5">

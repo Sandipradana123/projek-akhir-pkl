@@ -25,7 +25,7 @@ class AdminUkk extends Controller
     public function index()
     {
         // Mengambil semua data user dari database
-        $users = User::where('kategori', 'user')->get();
+        $users = User::where('kategori', 'user')->paginate(10);
         $admin = User::where('kategori', 'admin')->get();
         $prodi = DB::table('prodi')->pluck('daftar-prodi');
         $daftarKegiatan = DB::table('kegiatan')->pluck('daftar-kegiatan');
@@ -72,6 +72,7 @@ class AdminUkk extends Controller
         DB::table('jadwal')->insert([
             'kegiatan' => $request->kegiatan,
             'daftar-jadwal' => $request->tanggal,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
@@ -101,10 +102,10 @@ class AdminUkk extends Controller
                 'password' => [
                     'required',
                     'min:8', // Password minimal 8 karakter
-                    'regex:/[a-z]/', // Harus mengandung huruf kecil
-                    'regex:/[A-Z]/', // Harus mengandung huruf besar
-                    'regex:/[0-9]/', // Harus mengandung angka
-                    'regex:/[@$!%*#?&]/', // Harus mengandung simbol
+                    // 'regex:/[a-z]/', // Harus mengandung huruf kecil
+                    // 'regex:/[A-Z]/', // Harus mengandung huruf besar
+                    // 'regex:/[0-9]/', // Harus mengandung angka
+                    // 'regex:/[@$!%*#?&]/', // Harus mengandung simbol
                 ],
             ],
             [
@@ -114,7 +115,7 @@ class AdminUkk extends Controller
                 'email.unique' => 'Email sudah digunakan.',
                 'password.required' => 'Password wajib diisi.',
                 'password.min' => 'Password harus minimal 8 karakter.',
-                'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, angka, dan simbol (@$!%*#?&).',
+                // 'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, angka, dan simbol (@$!%*#?&).',
             ],
         );
         DB::table('users')->insert([
@@ -122,6 +123,7 @@ class AdminUkk extends Controller
             'email' => $request->email,
             'kategori' => 'admin',
             'password' => $request->password,
+            'status' => 'aktif'
         ]);
 
         return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
@@ -130,35 +132,77 @@ class AdminUkk extends Controller
     public function update(Request $request,$id){
         $admin = User::findOrFail($id);
     
-    $request->validate([
+    // $request->validate([
    
-            [
-                'nama' => 'required',
-                'email' => 'required|email|unique:users,email',
-                'password' => [
-                    'required',
-                    'min:8', // Password minimal 8 karakter
-                    'regex:/[a-z]/', // Harus mengandung huruf kecil
-                    'regex:/[A-Z]/', // Harus mengandung huruf besar
-                    'regex:/[0-9]/', // Harus mengandung angka
-                    'regex:/[@$!%*#?&]/', // Harus mengandung simbol
-                ],
-            ],
-            [
-                'nama.required' => 'Nama wajib diisi.',
-                'email.required' => 'Email wajib diisi.',
-                'email.email' => 'Format email tidak valid.',
-                'email.unique' => 'Email sudah digunakan.',
-                'password.required' => 'Password wajib diisi.',
-                'password.min' => 'Password harus minimal 8 karakter.',
-                'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, angka, dan simbol (@$!%*#?&).',
-            ],
-    ]);
+    //         [
+    //             'nama' => 'required',
+    //             'email' => 'required|email|unique:users,email',
+    //             'password' => [
+    //                 'required',
+    //                 // 'min:8', // Password minimal 8 karakter
+    //                 // 'regex:/[a-z]/', // Harus mengandung huruf kecil
+    //                 // 'regex:/[A-Z]/', // Harus mengandung huruf besar
+    //                 // 'regex:/[0-9]/', // Harus mengandung angka
+    //                 // 'regex:/[@$!%*#?&]/', // Harus mengandung simbol
+    //             ],
+    //         ],
+    //         [
+    //             'nama.required' => 'Nama wajib diisi.',
+    //             'email.required' => 'Email wajib diisi.',
+    //             'email.email' => 'Format email tidak valid.',
+    //             'email.unique' => 'Email sudah digunakan.',
+    //             'password.required' => 'Password wajib diisi.',
+    //             // 'password.min' => 'Password harus minimal 8 karakter.',
+    //             // 'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, angka, dan simbol (@$!%*#?&).',
+    //         ],
+    // ]);
 
     // Update data admin
     $admin->username = $request->nama;
     $admin->email = $request->email;
     $admin->password = $request->password;
+
+    // Jika password diisi, maka update password
+    if ($request->filled('password')) {
+        $admin->password = $request->password;
+    }
+
+    $admin->save();
+
+    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    }
+
+    public function updateUser(Request $request,$id){
+        $admin = User::findOrFail($id);
+    
+    // $request->validate([
+   
+    //         [
+    //             'nama' => 'required',
+    //             'email' => 'required|email|unique:users,email',
+    //             'password' => [
+    //                 'required',
+    //                 'min:8', // Password minimal 8 karakter
+    //             ],
+    //         ],
+    //         [
+    //             'nama.required' => 'Nama wajib diisi.',
+    //             'email.required' => 'Email wajib diisi.',
+    //             'email.email' => 'Format email tidak valid.',
+    //             'email.unique' => 'Email sudah digunakan.',
+    //             'password.required' => 'Password wajib diisi.',
+    //             'password.min' => 'Password harus minimal 8 karakter.',
+    //             'password.regex' => 'Panjang password minimal harus 8',
+    //         ],
+    // ]);
+
+    // Update data admin
+    $admin->username = $request->nama;
+    $admin->nim = $request->nim;
+    $admin->prodi = $request->prodi;
+    $admin->email = $request->email;
+    $admin->password = $request->password;
+    $admin->status = $request->status;
 
     // Jika password diisi, maka update password
     if ($request->filled('password')) {
@@ -212,6 +256,7 @@ class AdminUkk extends Controller
         $jadwal = Jadwal::findOrFail($id);
         // Update data jadwal
     $jadwal['daftar-jadwal'] = $request->tanggal;
+    $jadwal->status = $request->status;
 
     $jadwal->save();
     return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');

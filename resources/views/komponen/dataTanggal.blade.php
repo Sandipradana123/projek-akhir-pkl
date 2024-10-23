@@ -57,8 +57,21 @@
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Kegiatan : </label>
                                 <input id="tanggal" type="text" name="tanggal"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                    placeholder="Masukkan Tanggal Kegiatan" />
+                                    placeholder="Masukkan Tanggal Kegiatan" autocomplete="off" />
                                 <p>*contoh: 24 desember 2024</p>
+                            </div>
+
+                            <div>
+                                <label for="status"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status
+                                </label>
+                                <select name="status"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                                    <option value="aktif">
+                                        aktif</option>
+                                    <option value="non aktif">
+                                        non aktif</option>
+                                </select>
                             </div>
                             {{-- <div class="mt-5">
                                 <label
@@ -178,6 +191,18 @@
                                                     <input id="tanggal" type="text" name="tanggal"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                                         value="{{ $dataJadwal['daftar-jadwal'] }}" />
+                                                </div>
+                                                <div>
+                                                    <label for="status"
+                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status
+                                                    </label>
+                                                    <select name="status"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                                                        <option value="aktif">
+                                                            aktif</option>
+                                                        <option value="selesai">
+                                                            selesai</option>
+                                                    </select>
                                                 </div>
     
                                                

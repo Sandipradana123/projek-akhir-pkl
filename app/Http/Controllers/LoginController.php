@@ -26,7 +26,7 @@ class LoginController extends Controller
         );
 
         // Cari user berdasarkan email
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->where('status','aktif')->first();
 
         // Jika user tidak ditemukan
         if (!$user) {
@@ -36,7 +36,7 @@ class LoginController extends Controller
         // dd($user);
         if ($user && $request->password === $user->password) {
             Auth::login($user);
-
+            session(['user_id' => $user->id, 'user_name' => $user->name, 'user_role' => $user->kategori]);
             // Cek kategori
             if ($user->kategori === 'admin') {
                 return redirect()->route('admin-ukk'); // Arahkan ke halaman admin

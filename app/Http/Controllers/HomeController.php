@@ -11,7 +11,7 @@ class HomeController extends Controller
         // Ambil data dari database
         $prodi = DB::table('prodi')->pluck('daftar-prodi');
         $kegiatan = DB::table('kegiatan')->where('status','pendataan')->pluck('daftar-kegiatan');       
-        $jadwal = DB::table('jadwal')->pluck('daftar-jadwal');
+        $jadwal = DB::table('jadwal')->where('status','aktif')->pluck('daftar-jadwal');
         $sesi = DB::table('sesi')->where('status','aktif')->pluck('daftar-sesi');
         $lab = DB::table('daftar-lab')->where('status','Aktif')->pluck('nama-lab','value');
       

@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use App\Models\LabKomp1;
 use App\Exports\ExportData;
 use App\Http\Controllers\AdminUkk;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PesertaUkk;
+use GuzzleHttp\Middleware;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MhsController;
@@ -30,14 +32,15 @@ use App\Http\Controllers\exportController;
 //     return view('welcome');
 // });
 
-Route::get('/', [HomeController::class, 'loginForm']);
-Route::get('pendaftaran-ukk', [HomeController::class, 'index'])->name('pendaftaran-ukk');
+Route::get('/', [HomeController::class, 'loginForm'])->name('/');
+Route::get('pendaftaran-ukk', [HomeController::class, 'index'])->Middleware('auth.check')->name('pendaftaran-ukk');
 Route::get('admin-ukk', [AdminUkk::class, 'index'])->name( 'admin-ukk');
 Route::post('post-form', [FormController::class, 'postForm'])->name('post-form');
 Route::post('post-kegiatan', [AdminUkk::class, 'tambahKegiatan'])->name('post-kegiatan');
 Route::post('post-tanggal', [AdminUkk::class, 'tambahJadwal'])->name('post-tanggal');
 Route::post('admin-form', [AdminUkk::class, 'tambahAdmin'])->name('admin-form');
 Route::put('edit-admin-{id}', [AdminUkk::class, 'update'])->name('edit-admin');
+Route::put('edit-user-{id}', [AdminUkk::class, 'updateUser'])->name('edit-user');
 Route::put('edit-lab-{id}', [AdminUkk::class, 'updateLab'])->name('edit-lab');
 Route::put('edit-sesi-{id}', [AdminUkk::class, 'updateSesi'])->name('edit-sesi');
 Route::put('edit-tanggal-{id}', [AdminUkk::class, 'updateTanggal'])->name('edit-tanggal');
@@ -80,3 +83,7 @@ Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])
 Route::post('/siswa/import', [MhsController::class, 'import'])->name('siswa.import');
 
 Route::post('/labkomp1/import', [MhsController::class, 'importLab1'])->name('labkomp1.import');
+
+Route::post('/akun-mahasiswa/import', [MhsController::class, 'importAkunMhs'])->name('import.AkunMahasiswa');
+
+Route::get('/search', [SearchController::class, 'index'])->name('search');

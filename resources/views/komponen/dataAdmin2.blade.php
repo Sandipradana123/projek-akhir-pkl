@@ -51,7 +51,7 @@
                                 <label for="nama"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                     Admin</label>
-                                <input id="nama" type="text" name="nama"
+                                <input id="nama" type="text" name="nama" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('nama') border-red-500 @enderror"
                                     placeholder="Nama" />
                                 @error('nama')
@@ -61,14 +61,14 @@
                             <div>
                                 <label for="email"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input id="email" type="email" name="email"
+                                <input id="email" type="email" name="email" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     placeholder="Email" />
                             </div>
                             <div>
                                 <label for="password"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                <input id="password" type="text" name="password"
+                                <input id="password" type="text" name="password" autocomplete="off"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     placeholder="Password" />
                             </div>
@@ -119,6 +119,9 @@
                     <th scope="col" class="px-6 py-3">
                         Password
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        status
+                    </th>
 
                     <th scope="col" class="px-6 py-3 text-center">
                         Action
@@ -126,11 +129,14 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $no = ($users->currentPage() - 1) * $users->perPage() + 1;
+                @endphp
                 @foreach ($admin as $dataAdmin)
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th class="px-6 py-4">
-                            {{ $dataAdmin->id }}
+                            {{ $no++ }}
                         </th>
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -142,6 +148,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $dataAdmin->password }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $dataAdmin->status }}
                         </td>
 
                         <td class="px-6 py-4 flex justify-center gap-2">

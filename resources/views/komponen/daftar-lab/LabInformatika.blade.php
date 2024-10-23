@@ -74,7 +74,7 @@
                         <th scope="col" class="px-6 py-3">Kegiatan</th>
                         <th scope="col" class="px-6 py-3">Tanggal</th>
                         <th scope="col" class="px-6 py-3">Sesi</th>
-                        <th scope="col" class="px-6 py-3">Action</th>
+                        {{-- <th scope="col" class="px-6 py-3">Action</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -94,12 +94,12 @@
                             <td class="px-6 py-4">{{ $lab1->kegiatan }}</td>
                             <td class="px-6 py-4">{{ $lab1->jadwal }}</td>
                             <td class="px-6 py-4">{{ $lab1->sesi }}</td>
-                            <td class="px-6 py-4 flex space-x-2">
+                            {{-- <td class="px-6 py-4 flex space-x-2">
                                 <button
                                     >
                                     <i class="fas fa-edit"></i><!-- Font Awesome 6 -->
                                 </button>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                     <div class="mt-4 mb-5">

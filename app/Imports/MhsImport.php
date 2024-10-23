@@ -33,10 +33,10 @@ class MhsImport implements ToModel
     }
        
         return new User([
-            'username' => trim($row[0]),
-            'email' => trim($row[1]),
+            'username' => $row[0],
+            'email' => $row[1],
             'kategori' => 'user',
-            'password' => trim($row[2])
+            'password' => $row[2]
         ]);
 
     }
