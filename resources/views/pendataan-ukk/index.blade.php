@@ -61,7 +61,7 @@
             <div class="sm:flex sm:gap-4">
                 <button type="button" class="flex text-sm bg-gray-50 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="images/profile.png" alt="user photo">
+                    <img class="w-8 h-8 rounded-full" src="{{ asset('img/peserta.png') }}" alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
@@ -72,10 +72,21 @@
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         
                         <li>
-                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" 
+                            {{-- <a href="#popup-modal-logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" 
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Logout
-            </a>
+            </a> --}}
+            
+            <a href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> <!-- Logout -->
+                <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+             </a>
+             
+             <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" class="hidden">
+                 @csrf
+             </form>
                         </li>
                     </ul>
                 </div>
@@ -163,8 +174,8 @@
 <!-- akhir navbar -->
 
 <!-- modal logoout -->
-<form id="logout-form"  action="{{ route('logout') }}" method="POST">
-    @csrf
+{{-- <form id="logout-form"  action="{{ route('/') }}" method="POST"> --}}
+    {{-- @csrf --}}
 <div id="popup-modal-logout" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -182,7 +193,7 @@
         </div>
     </div>
 </div>
-</form>
+{{-- </form> --}}
 <!-- section class -->
 <section class="text-black relative overflow-hidden" id="home">
     <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
@@ -394,8 +405,8 @@
                                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                             />
                         </svg>
-                        <p class="mt-6 text-lg font-medium text-gray-900">+62-316-555-0116</p>
-                        <p class="mt-1 text-lg font-medium text-gray-900">+62-446-526-0117</p>
+                        <p class="mt-6 text-lg font-medium text-gray-900">+62 813-3138-9761 (Arjun)</p>
+                        <p class="mt-1 text-lg font-medium text-gray-900">+62 877-1930-5836 (Sandi)</p>
                     </div>
                 </div>
 

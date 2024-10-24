@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\MhsUnique;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -12,7 +13,7 @@ class FormController extends Controller
     public function postForm(Request $request){
         $request->validate([
             'nama' => 'required',
-            'nim' => 'required|size:10|unique:' . $request->lab . ',nim', // unik untuk tabel yang dipilih
+            'nim' => ['required', 'size:10', new MhsUnique($request->nim, $request->kegiatan)],
             'email' => 'required',
             'kegiatan' => 'required|not_in:*pilih salah satu kegiatan', // Validasi agar pengguna tidak memilih opsi default
             'prodi' => 'required|not_in:*pilih salah satu progam studi',

@@ -25,6 +25,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout.admin')
 // Admin UKK Routes
 Route::middleware('auth.check')->group(function () {
     Route::get('pendaftaran-ukk', [HomeController::class, 'index'])->name('pendaftaran-ukk');
+    Route::post('post-pendaftaran', [FormController::class, 'postForm'])->name('post-pendaftaran');
     Route::get('admin-ukk', [AdminUkk::class, 'index'])->name('admin-ukk');
     
     Route::post('post-kegiatan', [AdminUkk::class, 'tambahKegiatan'])->name('post-kegiatan');

@@ -117,16 +117,16 @@
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Youtube</a>
+                    <a href="https://www.youtube.com/@unipma" class="hover:underline me-4 md:me-6">Youtube</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Instagram</a>
+                    <a href="https://www.instagram.com/official_unipma" class="hover:underline me-4 md:me-6">Instagram</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline me-4 md:me-6">Facebook</a>
+                    <a href="https://web.facebook.com/unipma?_rdc=1&_rdr" class="hover:underline me-4 md:me-6">Facebook</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:underline">Tiktok</a>
+                    <a href="https://unipma.ac.id/" class="hover:underline">Wesbite</a>
                 </li>
             </ul>
         </div>

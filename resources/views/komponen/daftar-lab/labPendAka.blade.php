@@ -4,11 +4,11 @@
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
         <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Lab pendidikan akutansi</h1>
-        <button onclick="showBackFromTable()"
+        {{-- <button onclick="showBackFromTable()"
             class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mb-6">
             <i class="fas fa-arrow-left"></i>
 
-        </button>
+        </button> --}}
 
         {{-- <form action="{{ route('export.labPendAka') }}" method="GET" >
         <div class="flex gap-12">

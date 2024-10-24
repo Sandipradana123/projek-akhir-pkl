@@ -72,7 +72,16 @@
             </div>
         </div>
 
-
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    
+    
+    
+   
+    
 
         <!-- Main modal -->
         <div id="authentication-modal-user" tabindex="-1" aria-hidden="true"
@@ -171,8 +180,35 @@
     <div class="p-5 text-3xl font-semibold text-center text-gray-900 bg-white dark:text-white dark:bg-gray-800">
         Data User
     </div>
+    {{-- @if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif --}}
 
+@if (session('error'))
+    <div id="alert" class="bg-red-500 text-white p-4 rounded-lg mb-4">
+        {{ session('error') }}
+    </div>        
+    @endif
 
+    @if (session('errorFile'))
+    <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+    <script>
+        setTimeout(function() {
+            var alertBox = document.getElementById('alert');
+            if (alertBox) {
+                alertBox.style.display = 'none'; // Menyembunyikan alert
+            }
+        }, 10000); // 20 detik
+    </script>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
