@@ -41,13 +41,13 @@ class LabImport implements ToModel
         return null; // Lewati baris kosong
     }
        
-        return new LabAka4([
+        return new LabAka1([
             'nama' => trim($row[0]),
             'nim' => trim($row[1]),
             'email' => trim($row[0]) . '@gmail.com',
             'progam-studi' => trim($row[2]),
             'kegiatan' => 'Ujian IC3',
-            'jadwal' => '5 September 2024',
+            'jadwal' => '4 September 2024',
             // 'sesi' => 'Sesi 1 (09.00 - 10.30)'
             'sesi' => 'Sesi 2 (12.30 - 14.00)'
         ]);

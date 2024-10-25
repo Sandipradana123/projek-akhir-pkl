@@ -9,7 +9,7 @@
             Kembali
         </button> --}}
 
-        <div>
+        {{-- <div>
             <form class="max-w-[300px] mx-auto" action="{{ route('labkomp1.import') }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
@@ -20,7 +20,7 @@
                 </div>
                 
               </form>
-        </div>
+        </div> --}}
 
         <form action="{{ route('export.labUptKomp2') }}" method="GET" class="p-4">
             <div class="flex flex-col md:flex-row md:gap-12">

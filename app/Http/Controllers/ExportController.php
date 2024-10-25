@@ -23,7 +23,7 @@ class ExportController extends Controller
     public function export(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabKomp1::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabKomp1::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -57,7 +57,7 @@ class ExportController extends Controller
     public function exportLabUptKomp2(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabKomp2::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabKomp2::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -91,7 +91,7 @@ class ExportController extends Controller
     public function exportLabMate(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabMate1::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabMate1::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -125,7 +125,7 @@ class ExportController extends Controller
     public function exportlabPendAka(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabAka1::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabAka1::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -160,7 +160,7 @@ class ExportController extends Controller
     public function exportLabInformatika(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabInformatika3::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabInformatika3::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -196,7 +196,7 @@ class ExportController extends Controller
     public function exportLabFeb(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabFeb3::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabFeb3::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -232,7 +232,7 @@ class ExportController extends Controller
     public function exportLabTeknikIndustri(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabIndustri4::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabIndustri4::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -268,7 +268,7 @@ class ExportController extends Controller
     public function exportLabSistemInformasi(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabSi4::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabSi4::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -305,7 +305,7 @@ class ExportController extends Controller
     public function exportLabProdiAka(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabAka4::select('id', 'nama', 'nim','progam-studi', 'jadwal', 'sesi');
+    $jadwalQuery = LabAka4::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {

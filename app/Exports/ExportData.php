@@ -23,7 +23,7 @@ class ExportData implements FromCollection, WithHeadings,WithMapping
 
     public function headings(): array
     {
-        return ['No','Nama', 'NIM', 'Program Studi'];
+        return ['No','Nama', 'Email','NIM', 'Program Studi','kegiatan','tanggal','sesi'];
     }
 
     public function map($row): array
@@ -32,8 +32,12 @@ class ExportData implements FromCollection, WithHeadings,WithMapping
         return [
             $number++,          // Kolom No (berurutan)
             $row->nama,         // Kolom Nama
+            $row->email,         // Kolom email
             $row->nim,          // Kolom NIM
-            $row['progam-studi'] // Kolom Program Studi
+            $row['progam-studi'], // Kolom Program Studi
+            $row->kegiatan, // Kolom kegiatan
+            $row->jadwal, // Kolom tanggal
+            $row->sesi //kolom sesi
         ];
     }
 }

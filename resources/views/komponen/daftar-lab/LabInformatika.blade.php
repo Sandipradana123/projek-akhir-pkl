@@ -103,7 +103,7 @@
                         </tr>
                     @endforeach
                     <div class="mt-4 mb-5">
-                        {{ $labMate1->onEachSide(1)->links() }}
+                        {{ $labInformatika3->onEachSide(1)->links() }}
                     </div>
                 </tbody>
             </table>
