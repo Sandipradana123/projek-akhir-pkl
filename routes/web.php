@@ -5,6 +5,7 @@ use App\Http\Controllers\{
     LoginController, DeleteController, ExportController, MhsController, FormController, PesertaUkk
 };
 use App\Exports\ExportData;
+use App\Http\Controllers\PdfController;
 use App\Models\LabKomp1;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
@@ -66,6 +67,7 @@ Route::prefix('export')->group(function () {
     Route::get('/jadwal-labTeknikIndustri', [ExportController::class, 'exportLabTeknikIndustri'])->name('export.labTeknikIndustri');
     Route::get('/jadwal-labSistemInformasi', [ExportController::class, 'exportLabSistemInformasi'])->name('export.labSistemInformasi');
     Route::get('/jadwal-labProdiAka', [ExportController::class, 'exportLabProdiAka'])->name('export.LabProdiAka');
+    Route::get('/download-pdf/{id}', [PdfController::class, 'exportPDF'])->name('download.pdf');
 });
 
 // Import Routes

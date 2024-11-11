@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         // Jika user tidak ditemukan
         if (!$user) {
-            return back()->withErrors(['email' => 'Email tidak ditemukan']);
+            return back()->withErrors(['email' => 'Email tidak ditemukan'])->withInput();
         }
 
         // dd($user);
@@ -46,7 +46,8 @@ class LoginController extends Controller
                 return redirect()->route('login')->withErrors('Kategori tidak valid');
             }
         } else {
-            return back()->withErrors('Email atau password salah');
+            return back()->withErrors(['password' => 'password salah'])->withInput();
+
         }
     }
 

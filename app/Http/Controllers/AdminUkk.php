@@ -99,14 +99,8 @@ class AdminUkk extends Controller
             [
                 'nama' => 'required',
                 'email' => 'required|email|unique:users,email',
-                'password' => [
-                    'required',
-                    'min:8', // Password minimal 8 karakter
-                    // 'regex:/[a-z]/', // Harus mengandung huruf kecil
-                    // 'regex:/[A-Z]/', // Harus mengandung huruf besar
-                    // 'regex:/[0-9]/', // Harus mengandung angka
-                    // 'regex:/[@$!%*#?&]/', // Harus mengandung simbol
-                ],
+                'password' => 'required'
+        
             ],
             [
                 'nama.required' => 'Nama wajib diisi.',
@@ -114,7 +108,6 @@ class AdminUkk extends Controller
                 'email.email' => 'Format email tidak valid.',
                 'email.unique' => 'Email sudah digunakan.',
                 'password.required' => 'Password wajib diisi.',
-                'password.min' => 'Password harus minimal 8 karakter.',
                 // 'password.regex' => 'Password harus mengandung huruf besar, huruf kecil, angka, dan simbol (@$!%*#?&).',
             ],
         );

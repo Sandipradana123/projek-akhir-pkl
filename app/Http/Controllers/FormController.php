@@ -95,7 +95,7 @@ class FormController extends Controller
 
       
      
-         return redirect()->back()->with('success', 'Data berhasil ditambahkan ke ' . $tableName);
+         return redirect()->back()->with('success', 'Berhasil mendaftar' );
 
     }
 

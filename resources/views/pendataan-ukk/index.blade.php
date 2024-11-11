@@ -102,6 +102,7 @@
     </div>
 </header>
 
+
 <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-full transition-transform -translate-x-full bg-blue-600 md:hidden">
     <div class="p-4">
         <h2 class="text-white">Menu</h2>
@@ -578,6 +579,43 @@
         <p class="text-sm text-center text-gray-600">© Copyright 2024, All Rights Reserved by TimITRPL</p>
     </div>
 </section>
+
+<!-- Modal HTML -->
+<div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg w-1/3 p-6">
+        <div class="flex justify-between items-center border-b pb-3">
+            <h3 class="text-lg font-semibold text-gray-900">Berhasil</h3>
+            <button type="button" class="text-gray-500 hover:text-gray-700" onclick="closeModal()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="mt-4">
+            <!-- Pesan sukses -->
+            <p class="text-gray-700">{{ session('success') }}</p>
+        </div>
+        <div class="flex justify-end mt-6">
+            <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        @if(session('success'))
+            console.log("Session success ada"); // Debugging log
+            document.getElementById("successModal").classList.remove("hidden");
+        @else
+            console.log("Session success tidak ada"); // Debugging log
+        @endif
+    });
+
+    function closeModal() {
+        document.getElementById("successModal").classList.add("hidden");
+    }
+</script>
+
+
 
  <!-- footer akhir -->
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>

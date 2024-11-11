@@ -19,91 +19,99 @@
         </div>
     </nav>   
 
-    <section class="relative py-10 mt-16 bg-gray-50 sm:py-16 lg:py-24"> <!-- Tambahkan mt-16 di sini -->
+    <section class="relative py-10 mt-16 bg-gray-50 sm:py-16 lg:py-24">
         <div class="absolute inset-0 bg-gray-900/20"></div>
     
-        <div class="relative max-w-lg px-4 mx-auto sm:px-0">
-            <div class="overflow-hidden bg-white rounded-md shadow-md">
-                <div class="px-4 py-6 sm:px-8 sm:py-7">
-                    <div class="text-center">
-                        <h2 class="text-3xl font-bold text-gray-900">Selamat Datang</h2>
-                        <p class="mt-2 text-base text-gray-600">Diwebsite Laboratium Universitas Pgri Madiun</p>
-                    </div>
+        <div class="relative max-w-7xl px-4 mx-auto sm:px-0">
+            <!-- Grid container untuk dua card -->
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                <!-- Card 1 (Dengan form) -->
+                <div class="overflow-hidden bg-white rounded-md shadow-md">
+                    <div class="px-4 py-6 sm:px-8 sm:py-7">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-bold text-gray-900">Selamat Datang</h2>
+                            <p class="mt-2 text-base text-gray-600">Diwebsite Laboratium Universitas Pgri Madiun</p>
+                        </div>
     
-                    <form action="{{ route('login') }}" method="POST" class="mt-8">
-                        @csrf
-                        <div class="space-y-5">
-                            <div>
-                                <label for="" class="text-base font-medium text-gray-900 "> Email address </label>
-                                <div class="mt-2.5">
-                                    <input type="email" name="email" id="" autocomplete="off" placeholder="Masukkan Email Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('email') border-red-500 @enderror" value="{{ old('email') }}"/>
+                        <form action="{{ route('login') }}" method="POST" class="mt-8">
+                            @csrf
+                            <div class="space-y-5">
+                                <div>
+                                    <label for="" class="text-base font-medium text-gray-900"> Email address </label>
+                                    <div class="mt-2.5">
+                                        <input type="email" name="email" id="" autocomplete="off" placeholder="Masukkan Email Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('email') border-red-500 @enderror" value="{{ old('email') }}"/>
                                     @error('email')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
                                     @enderror
-
-                                     
+                                    </div>
                                 </div>
-                            </div>
     
-                            <div>
-                                <div class="flex items-center justify-between">
-                                    <label for="" class="text-base font-medium text-gray-900"> Password </label>
+                                <div>
+                                    <div class="flex items-center justify-between">
+                                        <label for="" class="text-base font-medium text-gray-900"> Password </label>
     
-                                    <a href="#" title="" class="text-sm font-medium transition-all duration-200 text-rose-500 hover:text-rose-600 focus:text-rose-600 hover:underline"> Forgot password? </a>
-                                </div>
-                                <div class="mt-2.5">
-                                    <input type="password" name="password" id="" autocomplete="off" placeholder="Masukkan Password Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('password') border-red-500 @enderror" />
+                                        <a href="https://wa.me/+6281331389761
+" title="" class="text-sm font-medium transition-all duration-200 text-rose-500 hover:text-rose-600 focus:text-rose-600 hover:underline"> Forgot password? </a>
+                                    </div>
+                                    <div class="mt-2.5">
+                                        <input type="password" name="password" id="" autocomplete="off" placeholder="Masukkan Password Anda" class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600 @error('password') border-red-500 @enderror" />
                                     @error('password')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
                                     @enderror
-                                </div>
-                            </div>
-    
-                            <div>
-                                <button  type="submit" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700" >Log in</button>
-                            </div>
-    
-                            {{-- <div>
-                                <button 
-                                    type="button"
-                                    class="
-                                        relative
-                                        inline-flex
-                                        items-center
-                                        justify-center
-                                        w-full
-                                        px-4
-                                        py-4
-                                        text-base
-                                        font-semibold
-                                        text-gray-700
-                                        transition-all
-                                        duration-200
-                                        bg-white
-                                        border-2 border-gray-200
-                                        rounded-md
-                                        hover:bg-gray-100
-                                        focus:bg-gray-100
-                                        hover:text-black
-                                        focus:text-black focus:outline-none
-                                    "
-                                >
-                                    <div class="absolute inset-y-0 left-0 p-4">
-                                        <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"
-                                            ></path>
-                                        </svg>
                                     </div>
-                                    Login Dengan Google
-                                </button>
-                            </div> --}}
+                                </div>
+    
+                                <div>
+                                    <button type="submit" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700">Log in</button>
+                                </div>
+    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    
+                <!-- Card 2 (Hanya gambar dengan pembatas tinggi) -->
+                <div class="overflow-hidden bg-white rounded-md shadow-md">
+                    <div class="relative w-full h-[350px]">
+                        <!-- Pembatas tinggi untuk gambar -->
+                        <div class="text-center">
+                            <h2 class="text-3xl font-semibold mt-2 text-gray-900">Tutorial Penggunaan</h2>
+                            <p class="text-sm sm:text-base mt-2">Klik foto di bawah ini untuk melihat tutorial.</p>
                         </div>
-                    </form>
+                        <img src="{{ asset('img/panduan.png') }}" alt="Gambar 2" class="w-full h-full object-cover cursor-pointer mt-5" onclick="openModal()">
+                    </div>
                 </div>
             </div>
         </div>
+    
+        <!-- Modal untuk memperbesar gambar -->
+        <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-75 flex justify-center items-center">
+            <div class="relative max-w-full max-h-full overflow-auto p-4">
+                <!-- Tombol close (X) -->
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl font-bold bg-gray-800 p-2 rounded-full hover:bg-gray-700 focus:outline-none">
+                    ×
+                </button>
+                <!-- Gambar dengan ukuran responsif -->
+                <img id="modalImage" src="{{ asset('img/panduan.png') }}" alt="Popup Image" class="max-w-full max-h-[90vh] object-contain">
+            </div>
+        </div>
     </section>
+
+      <!-- JavaScript untuk menangani modal -->
+      <script>
+        function openModal() {
+            // Menampilkan modal dan gambar
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('hidden');
+        }
+    
+        function closeModal() {
+            // Menyembunyikan modal
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+        }
+    </script>
+   
     
 
 
