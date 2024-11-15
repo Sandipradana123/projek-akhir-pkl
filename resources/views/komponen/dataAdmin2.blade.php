@@ -86,7 +86,7 @@
         Data Admin
     </div>
     <div class="flex justify-end mb-10">
-        <div>
+        {{-- <div>
             <form class="max-w-[300px] mx-auto" action="{{ route('siswa.import') }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
@@ -97,7 +97,7 @@
                 </div>
                 
               </form>
-        </div>
+        </div> --}}
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
