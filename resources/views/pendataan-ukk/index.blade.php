@@ -40,18 +40,18 @@
         </a>
         <div class="flex flex-1 items-center justify-end md:justify-center">
             <nav aria-label="Global" class="hidden md:block">
-                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700" id="default-styled-tab" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600 dark:border-purple-500" data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300" role="tablist">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white " id="default-styled-tab" data-tabs-active-classes="text-purple-600 hover:text-purple-600 dark:text-purple-500 dark:hover:text-purple-500 border-purple-600" data-tabs-inactive-classes=" text-gray-500 hover:text-gray-600  border-gray-100 hover:border-gray-300 :hover:text-gray-300" role="tablist">
                     <li>
-                      <a href="#home" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+                      <a href="#home" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700">Home</a>
                     </li>
                     <li>
-                      <a href="#Pendataan" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pendataan</a>
+                      <a href="#Pendataan" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 ">Pendataan</a>
                     </li>
                     <li>
-                      <a href="#faq" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">FAQ</a>
+                      <a href="#faq" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700">FAQ</a>
                     </li>
                     <li>
-                      <a href="#contact" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                      <a href="#contact" class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500">Contact</a>
                     </li>
                   </ul>
             </nav>
@@ -59,15 +59,15 @@
 
         <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
-                <button type="button" class="flex text-sm bg-gray-50 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <button type="button" class="flex text-sm bg-gray-50 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full" src="{{ asset('img/peserta.png') }}" alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
                     <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->username }}</span>
-                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
+                        <span class="block text-sm text-gray-900">{{ Auth::user()->username }}</span>
+                        <span class="block text-sm text-gray-500 truncate">{{ Auth::user()->email }}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         
@@ -78,7 +78,7 @@
             </a> --}}
             
             <a href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i> <!-- Logout -->
                 <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
@@ -339,7 +339,7 @@
       
 <div id="accordion-open" data-accordion="open">
     <h2 id="accordion-open-heading-1">
-      <button type="button" class="flex items-center mt-5 justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-open-body-1" aria-expanded="false" aria-controls="accordion-open-body-1">
+      <button type="button" class="flex items-center mt-5 justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200" data-accordion-target="#accordion-open-body-1" aria-expanded="false" aria-controls="accordion-open-body-1">
         <span class="flex items-center"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> Apa itu sistem pemilihan tempat duduk laboratorium?</span>
         <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
@@ -347,12 +347,12 @@
       </button>
     </h2>
     <div id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
-      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-        <p class="mb-2 text-gray-500 dark:text-gray-400">Sistem ini dirancang untuk memudahkan mahasiswa dalam memilih dan memesan tempat duduk di laboratorium sesuai kebutuhan mereka.</p>
+      <div class="p-5 border border-b-0 border-gray-200">
+        <p class="mb-2 text-gray-500">Sistem ini dirancang untuk memudahkan mahasiswa dalam memilih dan memesan tempat duduk di laboratorium sesuai kebutuhan mereka.</p>
       </div>
     </div>
     <h2 id="accordion-open-heading-2">
-      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-open-body-2" aria-expanded="false" aria-controls="accordion-open-body-2">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200   hover:bg-gray-100  gap-3" data-accordion-target="#accordion-open-body-2" aria-expanded="false" aria-controls="accordion-open-body-2">
         <span class="flex items-center"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>Siapa yang bisa menggunakan sistem ini?</span>
         <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
@@ -360,12 +360,12 @@
       </button>
     </h2>
     <div id="accordion-open-body-2" class="hidden" aria-labelledby="accordion-open-heading-2">
-      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-        <p class="mb-2 text-gray-500 dark:text-gray-400">Semua mahasiswa yang terdaftar di universitas berhak menggunakan sistem pemilihan tempat duduk laboratorium.</p>
+      <div class="p-5 border border-b-0 border-gray-200">
+        <p class="mb-2 text-gray-500 ">Semua mahasiswa yang terdaftar di universitas berhak menggunakan sistem pemilihan tempat duduk laboratorium.</p>
       </div>
     </div>
     <h2 id="accordion-open-heading-3">
-      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-open-body-3" aria-expanded="false" aria-controls="accordion-open-body-3">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200  hover:bg-gray-100 gap-3" data-accordion-target="#accordion-open-body-3" aria-expanded="false" aria-controls="accordion-open-body-3">
         <span class="flex items-center"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> Apakah saya bisa memilih tempat duduk di laboratorium yang berbeda?</span>
         <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
@@ -373,8 +373,7 @@
       </button>
     </h2>
     <div id="accordion-open-body-3" class="hidden" aria-labelledby="accordion-open-heading-3">
-      <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
-        <p class="mb-2 text-gray-500 dark:text-gray-400">Ya, mahasiswa dapat memilih tempat duduk di laboratorium mana pun yang tersedia sesuai jadwal dan kuota.</p>
+      <div class="p-5 border border-t-0 border-gray-200 ">Ya, mahasiswa dapat memilih tempat duduk di laboratorium mana pun yang tersedia sesuai jadwal dan kuota.</p>
       </div>
     </div>
   </div>

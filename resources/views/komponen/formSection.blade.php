@@ -15,7 +15,7 @@
             <div class="xl:w-full xl:max-w-2xl 2xl:max-w-2xl xl:mx-auto w-full">
                 <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">Form Input Posisi Lab</h2>
                 <div
-                    class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 mt-3 dark:bg-gray-800 dark:border-gray-700">
+                    class="w-full max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 mt-3">
                     <form action="{{ route('post-pendaftaran') }}" method="POST" class="mt-2">
                         @csrf
                         <div class="space-y-5">

@@ -10,11 +10,11 @@
   <link rel="icon" href="images/logo.png">
 </head>
 <body>
-    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav class="bg-white  fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('img/ukkUnipma.png') }}" class="h-16" alt="unipma Logo">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Universitas Pgri Madiun</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black">Universitas Pgri Madiun</span>
             </a>
         </div>
     </nav>   
@@ -116,14 +116,14 @@
 
 
 
-<footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+<footer class="bg-white rounded-lg shadow ">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('img/ukkUnipma.png') }}" class="h-8" alt="unipma logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Universitas Pgri Madiun</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black">Universitas Pgri Madiun</span>
             </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0">
                 <li>
                     <a href="https://www.youtube.com/@unipma" class="hover:underline me-4 md:me-6">Youtube</a>
                 </li>
@@ -139,7 +139,7 @@
             </ul>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">timITUnipma</a>. All Rights Reserved.</span>
+        <span class="block text-sm text-gray-500 sm:text-center text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">timITUnipma</a>. All Rights Reserved.</span>
     </div>
 </footer>
 
@@ -166,5 +166,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

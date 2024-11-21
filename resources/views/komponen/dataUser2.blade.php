@@ -8,7 +8,7 @@
         <div class="mx-5">
             <button data-modal-target="authentication-modal-import-excel"
                 data-modal-toggle="authentication-modal-import-excel"
-                class="block text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="block text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 type="button">
                 <i class="fas fa-file-excel"></i>
             </button>
@@ -16,7 +16,7 @@
 
         <div>
             <button data-modal-target="authentication-modal-user" data-modal-toggle="authentication-modal-user"
-                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 type="button">
                 <i class="fas fa-plus"></i> <!-- Ikon Font Awesome Plus -->
             </button>
@@ -28,10 +28,9 @@
             <div class="relative p-4 w-full max-w-md max-h-full 
 ">
                 {{-- awal modal tambah user --}}
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="relative bg-white rounded-lg shadow">
                     <!-- Modal header -->
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
                             Import data excel
                         </h3>
                     </div>
@@ -42,12 +41,12 @@
                             @csrf
                             <div>
 
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                <label class="block mb-2 text-sm font-medium text-gray-900"
                                     for="file_input">Upload file</label>
                                 <input
-                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                                     name="file" aria-describedby="file_input_help" id="file_input" type="file">
-                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">xlxc.</p>
+                                <p class="mt-1 text-sm text-gray-500 " id="file_input_help">xlxc.</p>
 
                                 @error('nama')
                                     <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -55,7 +54,7 @@
                             </div>
 
                             <button type="submit"
-                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan</button>
+                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Tambahkan</button>
                         </form>
                     </div>
                 </div>
@@ -72,11 +71,11 @@
             </div>
         </div>
 
-        @if (session('success'))
+        {{-- @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
-    @endif
+    @endif --}}
     
     
     
@@ -89,14 +88,14 @@
             <div class="relative p-4 w-full max-w-md max-h-full 
 ">
                 {{-- awal modal tambah user --}}
-                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <div class="relative bg-white rounded-lg shadow">
                     <!-- Modal header -->
-                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                        <h3 class="text-xl font-semibold text-gray-900">
                             Tambah Userrrrrrrrrrrr
                         </h3>
                         <button type="button"
-                            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                             data-modal-hide="authentication-modal-user">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
@@ -112,10 +111,10 @@
                             @csrf
                             <div>
                                 <label for="nama"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                                    class="block mb-2 text-sm font-medium text-gray-900">Nama
                                     Admin</label>
                                 <input id="nama" type="text" name="nama" autocomplete="off"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('nama') border-red-500 @enderror"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('nama') border-red-500 @enderror"
                                     placeholder="Nama" />
                                 @error('nama')
                                     <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -123,9 +122,9 @@
                             </div>
                             <div>
                                 <label for="nim"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIM</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900">NIM</label>
                                 <input id="nim" type="text" name="nim" autocomplete="off"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('nim') border-red-500 @enderror"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('nim') border-red-500 @enderror"
                                     placeholder="Nim" />
                                 @error('nim')
                                     <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -133,9 +132,9 @@
                             </div>
                             <div class="mt-5">
                                 <label
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prodi</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900">Prodi</label>
                                 <select
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     name="prodi">
                                     @foreach ($prodi as $daftarProdi)
                                         <option value="{{ $daftarProdi }}">{{ $daftarProdi }}</option>
@@ -145,21 +144,21 @@
                             </div>
                             <div>
                                 <label for="email"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                                 <input id="email" type="email" name="email" autocomplete="off"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="Email" />
                             </div>
                             <div>
                                 <label for="password"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                    class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                                 <input id="password" type="text" name="password" autocomplete="off"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="Password" />
                             </div>
 
                             <button type="submit"
-                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan</button>
+                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Tambahkan</button>
                         </form>
                     </div>
                 </div>
@@ -177,7 +176,7 @@
         </div>
 
     </div>
-    <div class="p-5 text-3xl font-semibold text-center text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+    <div class="p-5 text-3xl font-semibold text-center text-gray-900 bg-white">
         Data User
     </div>
     {{-- @if (session('error'))
@@ -210,8 +209,8 @@
         }, 10000); // 20 detik
     </script>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         No
@@ -246,7 +245,7 @@
                 @endphp
                 @foreach ($users as $dataUser)
                     <tr
-                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        class="odd:bg-white  even:bg-gray-50">
                         <th class="px-6 py-4">
                             {{ $no++ }}
                         </th>
@@ -281,15 +280,15 @@
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                                 <div class="relative p-4 w-full max-w-md max-h-full">
                                     <!-- Modal content -->
-                                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <div class="relative bg-white rounded-lg shadow">
                                         <!-- Modal header -->
                                         <div
                                             class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                            <h3 class="text-xl font-semibold text-gray-900">
                                                 Edit User
                                             </h3>
                                             <button type="button"
-                                                class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                                                 data-modal-hide="authentication-modal-user-edit2">
                                                 <svg class="w-3 h-3" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -308,25 +307,25 @@
                                                 @method('PUT')
                                                 <div>
                                                     <label for="nama"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                                                        class="block mb-2 text-sm font-medium text-gray-900">Nama
                                                         User</label>
                                                     <input id="nama" type="text" name="nama"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         value="{{ $dataUser->username }}" required />
                                                 </div>
                                                 <div>
                                                     <label for="nim"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIM
+                                                        class="block mb-2 text-sm font-medium text-gray-900">NIM
                                                     </label>
                                                     <input id="nim" typ`e="text" name="nim"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         value="{{ $dataUser->nim }}" required />
                                                 </div>
                                                 <div class="mt-5">
                                                     <label
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prodi</label>
+                                                        class="block mb-2 text-sm font-medium text-gray-900">Prodi</label>
                                                     <select
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="prodi">
                                                         @foreach ($prodi as $item)
                                                         
@@ -339,16 +338,16 @@
                                                 
                                                 <div>
                                                     <label for="email"
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                                        class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                                                     <input id="email" type="text" name="email"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         value="{{ $dataUser->email }}" />
                                                 </div>
                                                 <div>
                                                     <label for="password"
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                                                     <input id="password" type="text" name="password"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         value="{{ $dataUser->password }}"/>
                                                 </div>
 
@@ -356,7 +355,7 @@
                                                     <label
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
                                                     <select
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="status">
                                                         <option value="aktif" {{ $dataUser->status == 'aktif' ? 'selected' : '' }}>aktif</option>
                                                         <option value="non aktif" {{ $dataUser->status == 'non aktif' ? 'selected' : '' }}>non aktif</option>
@@ -364,7 +363,7 @@
                                                 </div>
 
                                                 <button type="submit" data-id="{{ $dataUser->id }}"
-                                                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambahkan</button>
+                                                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Tambahkan</button>
                                             </form>
 
                                             <script>
@@ -416,7 +415,7 @@
                                 <div class="relative p-4 w-full max-w-md max-h-full">
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                         <button type="button"
-                                            class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                            class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
                                             data-modal-hide="popup-modal-user1">
                                             <svg class="w-3 h-3" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -428,21 +427,21 @@
                                             <span class="sr-only">Close modal</span>
                                         </button>
                                         <div class="p-4 md:p-5 text-center">
-                                            <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                                            <svg class="mx-auto mb-4 text-gray-400 w-12 h-12"
                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                                 viewBox="0 0 20 20">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                             </svg>
-                                            <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                            <h3 class="mb-5 text-lg font-normal text-gray-500">
                                                 Apakah kamu yakin untuk menghapus Akun ini</h3>
                                             <button data-modal-hide="popup-modal-user1" type="button"
-                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                                                 Yakin
                                             </button>
                                             <button data-modal-hide="popup-modal-user1" type="button"
-                                                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Tidak</button>
+                                                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Tidak</button>
                                         </div>
                                     </div>
                                 </div>
