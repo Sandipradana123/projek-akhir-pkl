@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\masukan;
 use App\Models\Sesi;
 use App\Models\User;
 use App\Models\Jadwal;
@@ -40,7 +41,7 @@ class AdminUkk extends Controller
         $labInformatika3 = LabInformatika3::paginate(10);
         $labFeb3 = LabFeb3::paginate(10);
         $labSi4 = LabSi4::paginate(10);
-
+        $ulasan = masukan::paginate(10);
         $labAka4 = LabAka4::paginate(10);
         $labIndustri = LabIndustri4::paginate(10);
         // Mengirim data ke view
@@ -53,6 +54,7 @@ class AdminUkk extends Controller
             'jadwal' => $jadwal,
             'lab' => $lab,
             'sesi' => $sesi,
+            'ulasan' => $ulasan,
             'labKomp1' => $labKomp1,
             'labKomp2' => $labKomp2,
             'labAka1' => $labAka1,

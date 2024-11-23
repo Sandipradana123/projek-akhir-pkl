@@ -44,6 +44,8 @@ Route::middleware('auth.check')->group(function () {
 // Peserta UKK Routes
 Route::post('akun-peserta-form', [PesertaUkk::class, 'tambahPeserta'])->name('akun-peserta-form');
 
+Route::post('masukan-peserta', [FormController::class, 'masukanPeserta'])->name('masukan-peserta');
+
 // Seats Management Routes
 Route::get('/getSeats', [HomeController::class, 'getSeats'])->name('getSeats');
 
@@ -67,7 +69,7 @@ Route::prefix('export')->group(function () {
     Route::get('/jadwal-labTeknikIndustri', [ExportController::class, 'exportLabTeknikIndustri'])->name('export.labTeknikIndustri');
     Route::get('/jadwal-labSistemInformasi', [ExportController::class, 'exportLabSistemInformasi'])->name('export.labSistemInformasi');
     Route::get('/jadwal-labProdiAka', [ExportController::class, 'exportLabProdiAka'])->name('export.LabProdiAka');
-    Route::get('/download-pdf/{id}', [PdfController::class, 'exportPDF'])->name('download.pdf');
+  
 });
 
 // Import Routes

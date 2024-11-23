@@ -99,6 +99,18 @@ class FormController extends Controller
 
     }
 
+    public function masukanPeserta(Request $request){
+        DB::table('masukan')->insert([
+            'nama' => $request->nama,
+            'no_tlp' => $request->no_tlp,
+            'email' => $request->email,
+            'prodi' => $request->prodi,
+            'pesan' => $request->pesan
+        ]);
+
+        return back()->with('success', 'Data berhasil disimpan!');
+    }
+
     public function logout(Request $request)
     {
         // // Hapus sesi dan logout pengguna

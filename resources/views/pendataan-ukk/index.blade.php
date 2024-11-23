@@ -435,40 +435,41 @@
                 <div class="px-6 py-12 sm:p-12">
                     <h3 class="text-3xl font-semibold text-center text-gray-900">Kirim Pesan</h3>
 
-                    <form action="#" method="POST" class="mt-14">
+                    <form action="{{route('masukan-peserta')}}" method="POST" class="mt-14">
+                        @csrf
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                             <div>
-                                <label for="" class="text-base font-medium text-gray-900"> Your name </label>
+                                <label for="" class="text-base font-medium text-gray-900">Nama lengkap</label>
                                 <div class="mt-2.5 relative">
-                                    <input type="text" name="" id="" placeholder="Enter your full name" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                    <input type="text" name="nama" id="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                                 </div>
                             </div>
 
                             <div>
-                                <label for="" class="text-base font-medium text-gray-900"> Email address </label>
+                                <label for="" class="text-base font-medium text-gray-900">Email</label>
                                 <div class="mt-2.5 relative">
-                                    <input type="email" name="" id="" placeholder="Enter your full name" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                    <input type="email" name="email" id="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                                 </div>
                             </div>
 
                             <div>
-                                <label for="" class="text-base font-medium text-gray-900"> Phone number </label>
+                                <label for="" class="text-base font-medium text-gray-900">Nomor telepon</label>
                                 <div class="mt-2.5 relative">
-                                    <input type="tel" name="" id="" placeholder="Enter your full name" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                    <input type="tel" id="" name="no_tlp" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                                 </div>
                             </div>
 
                             <div>
-                                <label for="" class="text-base font-medium text-gray-900"> prodi name </label>
+                                <label for="" class="text-base font-medium text-gray-900">Progam studi</label>
                                 <div class="mt-2.5 relative">
-                                    <input type="text" name="" id="" placeholder="Enter your full name" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                    <input type="text" id="" name="prodi" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                                 </div>
                             </div>
 
                             <div class="sm:col-span-2">
-                                <label for="" class="text-base font-medium text-gray-900"> Message </label>
+                                <label for="" class="text-base font-medium text-gray-900">Pesan</label>
                                 <div class="mt-2.5 relative">
-                                    <textarea name="" id="" placeholder="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-blue-600 caret-blue-600" rows="4"></textarea>
+                                    <textarea  id="" name="pesan" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-blue-600 caret-blue-600" rows="4"></textarea>
                                 </div>
                             </div>
 
@@ -559,7 +560,7 @@
                 </ul>
             </div>
 
-            <div class="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
+            {{-- <div class="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
                 <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Subscribe to universitaspgrimadiun</p>
 
                 <form action="#" method="POST" class="mt-6">
@@ -570,7 +571,7 @@
 
                     <button type="submit" class="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700">Subscribe</button>
                 </form>
-            </div>
+            </div> --}}
         </div>
 
         <hr class="mt-16 mb-10 border-gray-200" />

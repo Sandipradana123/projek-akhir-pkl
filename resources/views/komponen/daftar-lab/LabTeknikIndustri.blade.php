@@ -81,7 +81,7 @@
                         $no = ($labIndustri->currentPage() - 1) * $labIndustri->perPage() + 1
                     @endphp
                     @foreach ($labIndustri as $lab1)
-                        <tr class="row-item odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                        <tr class="row-item odd:bg-white even:bg-gray-50"
                         data-kegiatan="{{ $lab1->kegiatan }}"
                         data-tanggal="{{ $lab1->jadwal }}"
                         data-sesi="{{ $lab1->sesi }}">
@@ -93,12 +93,6 @@
                             <td class="px-6 py-4">{{ $lab1->kegiatan }}</td>
                             <td class="px-6 py-4">{{ $lab1->jadwal }}</td>
                             <td class="px-6 py-4">{{ $lab1->sesi }}</td>
-                            {{-- <td class="px-6 py-4 flex space-x-2">
-                                <button
-                                    >
-                                    <i class="fas fa-edit"></i><!-- Font Awesome 6 -->
-                                </button>
-                            </td> --}}
                         </tr>
                     @endforeach
                     <div class="mt-4 mb-5">

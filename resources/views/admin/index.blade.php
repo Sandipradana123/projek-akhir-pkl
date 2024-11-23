@@ -68,6 +68,10 @@
     @include('komponen.tabelJadwal')
     {{-- akhir jadwal --}}
 
+    {{-- tabel masukkan peserta --}}
+    @include('komponen.masukkan-peserta')
+    {{-- akhir masukkan peserta --}}
+
     {{-- logout --}}
     <div id="logout" class="content">
 

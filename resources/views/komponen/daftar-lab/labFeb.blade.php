@@ -94,7 +94,7 @@
                         $no = ($labFeb3->currentPage() - 1) * $labFeb3->perPage() + 1
                     @endphp
                     @foreach ($labFeb3 as $lab1)
-                        <tr class="row-item odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                        <tr class="row-item odd:bg-white even:bg-gray-50"
                         data-kegiatan="{{ $lab1->kegiatan }}"
                         data-tanggal="{{ $lab1->jadwal }}"
                         data-sesi="{{ $lab1->sesi }}">

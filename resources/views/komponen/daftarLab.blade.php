@@ -4,8 +4,6 @@
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
     <div class="flex justify-end mb-4 mt-6">
-
-       
     </div>
     <div class="p-5 text-3xl font-semibold text-center text-gray-900 bg-white ">
         Daftar Lab
@@ -101,7 +99,7 @@
                                                         <label for="slotKursi" 
                                                             class="block mb-2 text-sm font-medium text-gray-900">Slot
                                                             kursi : </label>
-                                                        <input id="slotKursi" type="text"  name="slotKursi"
+                                                        <input id="slotKursi" type="number"  name="slotKursi"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                             value="{{ $dataLab['slot-kursi'] }}" required />
                                                     </div>

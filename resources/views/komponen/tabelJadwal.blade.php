@@ -1,6 +1,5 @@
 @include('komponen.style')
 <div id="lab1">
-    <p>Ini adalah konten untuk Lab 1.</p>
 </div>
 {{-- <div id="tabelJadwal" class="hidden">
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">

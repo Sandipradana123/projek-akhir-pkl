@@ -59,8 +59,14 @@
                 </a>
             </li>
             <li>
-            
-
+                <a href="#masukkanPeserta"
+                    class="flex items-center p-2 text-gray-900 rounded-lg text-black  group"
+                    onclick="showContent('masukkanPeserta')">
+                    <i class="fas fa-comments"></i> <!-- Admin -->
+                    <span class="flex-1 ms-3 whitespace-nowrap">Ulasan</span>
+                </a>
+            </li>
+            <li>
                     <a href="#tabelJadwal"
         class="flex items-center p-2 text-gray-900 rounded-lg text-black "
         onclick="toggleDropdown('dropdownTabelJadwal')">
@@ -186,10 +192,8 @@ function toggleDropdown(dropdownId) {
                 
             </li>
             <li>
-                
-
                 <a href="#"
-                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-sign-out-alt"></i> <!-- Logout -->
                 <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
