@@ -25,7 +25,7 @@
                                     <input type="text" name="nama" id="fullName" autocomplete="off"
                                         placeholder="Masukkan nama Lengkap"
                                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('nama') border-red-500 @enderror"
-                                        value="{{ old('nama') }}" />
+                                        value="{{ Auth::user()->username }}" readonly/>
 
                                     @error('nama')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -39,7 +39,7 @@
                                     <input type="email" name="email" id="email" placeholder="Masukkan Email"
                                         autocomplete="off"
                                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('email') border-red-500 @enderror"
-                                        value="{{ old('email') }}" />
+                                        value="{{ Auth::user()->email }}" readonly />
 
                                     @error('email')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
@@ -53,7 +53,7 @@
                                     <input type="text" name="nim" id="nim" placeholder="Masukan Nomer Nim"
                                         autocomplete="off"
                                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600 @error('nim') border-red-500 @enderror"
-                                        value="{{ old('nim') }}" />
+                                        value="{{ Auth::user()->nim }}" readonly />
 
                                     @error('nim')
                                         <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>

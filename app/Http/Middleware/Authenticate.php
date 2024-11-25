@@ -12,6 +12,12 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        if (!$request->expectsJson()) {
+            // Tambahkan notifikasi
+            session()->flash('sesiHabis', 'Sesi login Anda telah habis. Silakan login kembali.');
+            return route('login');
+        }
+
+        return null;
     }
 }

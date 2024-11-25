@@ -441,14 +441,14 @@
                             <div>
                                 <label for="" class="text-base font-medium text-gray-900">Nama lengkap</label>
                                 <div class="mt-2.5 relative">
-                                    <input type="text" name="nama" id="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                    <input type="text" name="nama" id="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" value="{{ Auth::user()->username }}" readonly />
                                 </div>
                             </div>
 
                             <div>
                                 <label for="" class="text-base font-medium text-gray-900">Email</label>
                                 <div class="mt-2.5 relative">
-                                    <input type="email" name="email" id="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
+                                    <input type="email" name="email" id="" class="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" value="{{ Auth::user()->email }}" readonly />
                                 </div>
                             </div>
 

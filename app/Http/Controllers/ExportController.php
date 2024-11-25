@@ -11,6 +11,7 @@ use App\Models\LabKomp1;
 use App\Models\LabKomp2;
 use App\Models\LabMate1;
 use App\Exports\ExportData;
+use App\Exports\TemplateUser;
 use App\Models\LabSi4;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -340,5 +341,12 @@ class ExportController extends Controller
 }
 
     
+public function exportTemplateAkunUSer(){
+    return Excel::download(
+        new TemplateUser(), 
+        ('template akun.xlsx')
+        )
+    ;
+}
 
 }

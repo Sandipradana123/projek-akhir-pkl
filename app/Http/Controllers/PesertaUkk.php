@@ -35,7 +35,7 @@ class PesertaUkk extends Controller
             'status' => 'aktif'
         ]);
 
-        return redirect()->back()->with('success', 'Data berhasil ditambahkan ke ');
+        return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
 
     

@@ -14,7 +14,7 @@
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('img/ukkUnipma.png') }}" class="h-16" alt="unipma Logo">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black">Universitas Pgri Madiun</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black">Universitas PGRI Madiun</span>
             </a>
         </div>
     </nav>   
@@ -30,7 +30,7 @@
                     <div class="px-4 py-6 sm:px-8 sm:py-7">
                         <div class="text-center">
                             <h2 class="text-3xl font-bold text-gray-900">Selamat Datang</h2>
-                            <p class="mt-2 text-base text-gray-600">Diwebsite Laboratium Universitas Pgri Madiun</p>
+                            <p class="mt-2 text-base text-gray-600">Diwebsite Laboratium Universitas PGRI Madiun</p>
                         </div>
     
                         <form action="{{ route('login') }}" method="POST" class="mt-8">

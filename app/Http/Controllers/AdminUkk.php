@@ -79,19 +79,42 @@ class AdminUkk extends Controller
 
         return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
     }
+    public function tambahLab(Request $request){
+        
+        
+        DB::table('daftar-lab')->insert([
+            'nama-lab' => $request->NamaLab,
+            'value-lab' => $request->NamaDb,
+            'slot-kursi' => $request->JumlahKursi,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
+    }
+    public function tambahSesi(Request $request){
+        
+        
+        DB::table('sesi')->insert([
+            'daftar-sesi' => 'Sesi ' . $request->NamaSesi .' ('.$request->waktuMulai. ' - ' . $request->waktuBerakhir.')',
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin-ukk')->with('success', 'Berhasil menambahkan sesi');
+    }
 
     public function tambahKegiatan(Request $request){
 
         
         DB::table('kegiatan')->insert([
             'daftar-kegiatan' => $request->kegiatan,
-            'tanggal' => $request->tanggal,
+            'tanggal_mulai' => $request->tanggalMulai,
+            'tanggal_berakhir' => $request->tanggalBerakhir,
             'jumlah-lab' => $request->jumlahLab,
             'jumlah-sesi' => $request->jumlahSesi,
             'status' => $request->status,
         ]);
 
-        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
+        return redirect()->route('admin-ukk')->with('success', 'Berhasil menambahkan kegiatan');
     }
 
 
@@ -121,7 +144,7 @@ class AdminUkk extends Controller
             'status' => 'aktif'
         ]);
 
-        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
+        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan');
     }
 
     public function update(Request $request,$id){
@@ -224,7 +247,8 @@ class AdminUkk extends Controller
 
         // dd($request);
         $sesi = Sesi::findOrFail($id);
-        // Update data admin
+        
+        // Update data sesi
     $sesi['daftar-sesi'] = $request->sesi;
     $sesi['status'] = $request->status;
 
@@ -237,13 +261,14 @@ class AdminUkk extends Controller
         $kegiatan = Kegiatan::findOrFail($id);
         // Update data admin
     $kegiatan['daftar-kegiatan'] = $request->kegiatan;
-    $kegiatan['status'] = $request->tanggal;
+    $kegiatan->tanggal_mulai = $request->tanggalMulai;
+    $kegiatan->tanggal_berakhir = $request->tanggalBerakhir;
     $kegiatan['jumlah-lab'] = $request->jmlLab;
     $kegiatan['jumlah-sesi'] = $request->sesi;
     $kegiatan['status'] = $request->status;
 
     $kegiatan->save();
-    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
     public function updateTanggal(Request $request,$id){
 
@@ -254,7 +279,7 @@ class AdminUkk extends Controller
     $jadwal->status = $request->status;
 
     $jadwal->save();
-    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
 
 }

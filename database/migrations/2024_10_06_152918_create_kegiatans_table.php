@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
             $table->string('daftar-kegiatan');
-            $table->string('tanggal');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_berakhir');
             $table->string('jumlah-lab');
             $table->string('jumlah-sesi');
             $table->string('status');

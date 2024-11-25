@@ -7,6 +7,8 @@ use App\Models\Jadwal;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Sesi;
+
 
 class DeleteController extends Controller
 {
@@ -27,6 +29,22 @@ class DeleteController extends Controller
         }
     }
     public function deleteAdmin($id){
+        $data = User::find($id);
+
+        if ($data) {
+            $data->delete(); // Hapus data jika ditemukan
+            return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        }
+    }
+    public function deleteSesi($id){
+        $data = Sesi::find($id);
+
+        if ($data) {
+            $data->delete(); // Hapus data jika ditemukan
+            return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        }
+    }
+    public function deleteUser($id){
         $data = User::find($id);
 
         if ($data) {

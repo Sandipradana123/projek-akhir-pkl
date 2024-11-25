@@ -36,7 +36,7 @@ class LoginController extends Controller
         // dd($user);
         if ($user && $request->password === $user->password) {
             Auth::login($user);
-            session(['user_id' => $user->id, 'user_name' => $user->name, 'user_role' => $user->kategori]);
+            session(['user_id' => $user->id, 'username' => $user->name, 'nim' => $user->nim, 'email' => $user->email, 'prodi' => $user->prodi,   'user_role' => $user->kategori]);
             // Cek kategori
             if ($user->kategori === 'admin') {
                 return redirect()->route('admin-ukk'); // Arahkan ke halaman admin

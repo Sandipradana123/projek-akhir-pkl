@@ -32,6 +32,8 @@ Route::middleware('auth.check')->group(function () {
     Route::post('post-kegiatan', [AdminUkk::class, 'tambahKegiatan'])->name('post-kegiatan');
     Route::post('post-tanggal', [AdminUkk::class, 'tambahJadwal'])->name('post-tanggal');
     Route::post('admin-form', [AdminUkk::class, 'tambahAdmin'])->name('admin-form');
+    Route::post('tambah-lab', [AdminUkk::class, 'tambahLab'])->name('tambah-lab');
+    Route::post('tambah-sesi', [AdminUkk::class, 'tambahSesi'])->name('tambah-sesi');
 
     Route::put('edit-admin-{id}', [AdminUkk::class, 'update'])->name('edit-admin');
     Route::put('edit-user-{id}', [AdminUkk::class, 'updateUser'])->name('edit-user');
@@ -56,6 +58,8 @@ Route::get('admin', [AdminController::class, 'index']);
 Route::delete('delete-kegiatan/{id}', [DeleteController::class, 'deleteKegiatan'])->name('delete-kegiatan');
 Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])->name('delete-tanggal');
 Route::delete('delete-admin/{id}', [DeleteController::class, 'deleteAdmin'])->name('delete-admin');
+Route::delete('delete-sesi/{id}', [DeleteController::class, 'deleteSesi'])->name('delete-sesi');
+Route::delete('delete-user/{id}', [DeleteController::class, 'deleteUser'])->name('delete-user');
 
 // Export Routes
 Route::prefix('export')->group(function () {
@@ -69,6 +73,7 @@ Route::prefix('export')->group(function () {
     Route::get('/jadwal-labTeknikIndustri', [ExportController::class, 'exportLabTeknikIndustri'])->name('export.labTeknikIndustri');
     Route::get('/jadwal-labSistemInformasi', [ExportController::class, 'exportLabSistemInformasi'])->name('export.labSistemInformasi');
     Route::get('/jadwal-labProdiAka', [ExportController::class, 'exportLabProdiAka'])->name('export.LabProdiAka');
+    Route::get('/template-akun-user', [ExportController::class, 'exportTemplateAkunUSer'])->name('export.templateUser');
   
 });
 
