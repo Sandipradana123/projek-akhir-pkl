@@ -34,6 +34,7 @@ Route::middleware('auth.check')->group(function () {
     Route::post('admin-form', [AdminUkk::class, 'tambahAdmin'])->name('admin-form');
     Route::post('tambah-lab', [AdminUkk::class, 'tambahLab'])->name('tambah-lab');
     Route::post('tambah-sesi', [AdminUkk::class, 'tambahSesi'])->name('tambah-sesi');
+    Route::post('tambah-peserta', [AdminUkk::class, 'tambahPeserta'])->name('admin-tambah-peserta');
 
     Route::put('edit-admin-{id}', [AdminUkk::class, 'update'])->name('edit-admin');
     Route::put('edit-user-{id}', [AdminUkk::class, 'updateUser'])->name('edit-user');
@@ -41,6 +42,7 @@ Route::middleware('auth.check')->group(function () {
     Route::put('edit-sesi-{id}', [AdminUkk::class, 'updateSesi'])->name('edit-sesi');
     Route::put('edit-tanggal-{id}', [AdminUkk::class, 'updateTanggal'])->name('edit-tanggal');
     Route::put('edit-kegiatan-{id}', [AdminUkk::class, 'updatekegiatan'])->name('edit-kegiatan');
+    Route::put('edit-peserta-{id}', [AdminUkk::class, 'updatePeserta'])->name('edit-peserta');
 });
 
 // Peserta UKK Routes
@@ -60,6 +62,7 @@ Route::delete('delete-tanggal/{id}', [DeleteController::class, 'deleteTanggal'])
 Route::delete('delete-admin/{id}', [DeleteController::class, 'deleteAdmin'])->name('delete-admin');
 Route::delete('delete-sesi/{id}', [DeleteController::class, 'deleteSesi'])->name('delete-sesi');
 Route::delete('delete-user/{id}', [DeleteController::class, 'deleteUser'])->name('delete-user');
+Route::delete('delete-peserta/{id}', [DeleteController::class, 'deletePeserta'])->name('delete-peserta');
 
 // Export Routes
 Route::prefix('export')->group(function () {

@@ -15,6 +15,7 @@ use App\Exports\TemplateUser;
 use App\Models\LabSi4;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\DaftarPeserta;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
@@ -24,7 +25,8 @@ class ExportController extends Controller
     public function export(Request $request)
 {
     // Pilih kolom yang diperlukan
-    $jadwalQuery = LabKomp1::select('id', 'nama','email', 'nim','progam-studi','kegiatan', 'jadwal', 'sesi');
+    $jadwalQuery = DaftarPeserta::select('id', 'nama','email', 'nim','prodi','kegiatan', 'tanggal', 'sesi','lab');
+  
 
     // Tambahkan filter kegiatan jika ada
     if ($request->filled('kegiatan')) {
@@ -33,14 +35,17 @@ class ExportController extends Controller
 
     // Filter tanggal dan sesi sebagai satu kesatuan
     if ($request->filled('tanggal') && $request->filled('sesi')) {
-        $jadwalQuery->where('jadwal', $request->tanggal)
+        $jadwalQuery->where('tanggal', $request->tanggal)
                     ->where('sesi', $request->sesi);
     } elseif ($request->filled('tanggal')) {
-        $jadwalQuery->where('jadwal', $request->tanggal);
+        $jadwalQuery->where('tanggal', $request->tanggal);
     } elseif ($request->filled('sesi')) {
         $jadwalQuery->where('sesi', $request->sesi);
     }
-
+     elseif ($request->filled('lab')) {
+        $jadwalQuery->where('lab', $request->lab);
+    }
+  
     // Eksekusi query dan ambil data
     $jadwalData = $jadwalQuery->get();
 
@@ -55,6 +60,11 @@ class ExportController extends Controller
         ($request->get('kegiatan') . ' ' . $request->get('tanggal') . ' ' . $request->get('sesi') . ' Lab upt komputer 1' . '.xlsx')
     );
 }
+
+
+
+
+
     public function exportLabUptKomp2(Request $request)
 {
     // Pilih kolom yang diperlukan
@@ -67,10 +77,10 @@ class ExportController extends Controller
 
     // Filter tanggal dan sesi sebagai satu kesatuan
     if ($request->filled('tanggal') && $request->filled('sesi')) {
-        $jadwalQuery->where('jadwal', $request->tanggal)
+        $jadwalQuery->where('tanggal', $request->tanggal)
                     ->where('sesi', $request->sesi);
     } elseif ($request->filled('tanggal')) {
-        $jadwalQuery->where('jadwal', $request->tanggal);
+        $jadwalQuery->where('tanggal', $request->tanggal);
     } elseif ($request->filled('sesi')) {
         $jadwalQuery->where('sesi', $request->sesi);
     }

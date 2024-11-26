@@ -184,7 +184,7 @@
                                                             Lab : </label>
                                                         <input id="lab" type="text" name="lab"
                                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                                            value="{{ $dataLab['nama-lab'] }}" disabled />
+                                                            value="{{ $dataLab['nama-lab'] }}" />
                                                     </div>
                                                     <div>
                                                         <label for="slotKursi" 

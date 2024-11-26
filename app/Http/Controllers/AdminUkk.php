@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DaftarPeserta;
 use App\Models\masukan;
 use App\Models\Sesi;
 use App\Models\User;
@@ -31,10 +32,15 @@ class AdminUkk extends Controller
         $prodi = DB::table('prodi')->pluck('daftar-prodi');
         $daftarKegiatan = DB::table('kegiatan')->pluck('daftar-kegiatan');
         $kegiatan  = Kegiatan::all()->unique('daftar-kegiatan');
+        $kegiatanDropdown = DB::table('kegiatan')->where('status','pendataan')->pluck('daftar-kegiatan');       
         $jadwal  = Jadwal::all();
+        $jadwalDropdown = DB::table('jadwal')->where('status','aktif')->pluck('daftar-jadwal');
         $lab = DaftarLab::all();
+        // $labDropdown = DaftarLab::where('status','aktif');
+        $labDropdown = DaftarLab::pluck('nama-lab');
         $sesi = Sesi::all();
-        $labKomp1 = LabKomp1::paginate(10);
+        $sesiDropdown = DB::table('sesi')->where('status','aktif')->pluck('daftar-sesi');
+        $labKomp1 = DaftarPeserta::paginate(20);
         $labKomp2 = LabKomp2::paginate(10);
         $labAka1 = LabAka1::paginate(10);
         $labMate1 = LabMate1::paginate(10);
@@ -50,10 +56,14 @@ class AdminUkk extends Controller
             'admin' => $admin,
             'prodi' => $prodi,
             'kegiatan' => $kegiatan,
+            'kegiatanDropdown' => $kegiatanDropdown,
             'daftarKegiatan' => $daftarKegiatan,
             'jadwal' => $jadwal,
+            'jadwalDropdown' => $jadwalDropdown,
             'lab' => $lab,
+            'labDropdown' => $labDropdown,
             'sesi' => $sesi,
+            'sesiDropdown' => $sesiDropdown,
             'ulasan' => $ulasan,
             'labKomp1' => $labKomp1,
             'labKomp2' => $labKomp2,
@@ -75,6 +85,22 @@ class AdminUkk extends Controller
             'kegiatan' => $request->kegiatan,
             'daftar-jadwal' => $request->tanggal,
             'status' => $request->status,
+        ]);
+
+        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
+    }
+    public function tambahPeserta(Request $request){
+        
+        
+        DB::table('daftar-peserta')->insert([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'nim' => $request->nim,
+            'prodi' => $request->prodi,
+            'kegiatan' => $request->kegiatan,
+            'tanggal' => $request->tanggal,
+            'sesi' => $request->sesi,
+            'lab' => $request->lab,
         ]);
 
         return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
@@ -236,9 +262,10 @@ class AdminUkk extends Controller
 
         // dd($request);
         $lab = DaftarLab::findOrFail($id);
-        // Update data admin
-    $lab['slot-kursi'] = $request->slotKursi;
-    $lab['status'] = $request->status;
+        // Update data lab
+        $lab['nama-lab'] = $request->lab;
+        $lab['slot-kursi'] = $request->slotKursi;
+        $lab['status'] = $request->status;
 
     $lab->save();
     return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
@@ -268,6 +295,24 @@ class AdminUkk extends Controller
     $kegiatan['status'] = $request->status;
 
     $kegiatan->save();
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
+    }
+
+
+    public function updatePeserta(Request $request,$id){
+
+        // dd($request);
+        $peserta = DaftarPeserta::findOrFail($id);
+        // Update data peserta
+    $peserta->nama = $request->nama;
+    $peserta->email = $request->email;
+    $peserta->nim = $request->nim;
+    $peserta->prodi = $request->prodi;
+    $peserta->kegiatan = $request->kegiatan;
+    $peserta->tanggal = $request->tanggal;
+    $peserta->lab = $request->lab;
+
+    $peserta->save();
     return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
     public function updateTanggal(Request $request,$id){

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
-    public function postForm(Request $request){
+    public function postForm(Request $request)  {
         $request->validate([
             'nama' => 'required',
             'nim' => ['required', 'size:10', new MhsUnique($request->nim, $request->kegiatan)],
@@ -38,60 +38,62 @@ class FormController extends Controller
         ]);
 
 
-         // Menentukan tabel berdasarkan input form 'lab'
-         $tableName = $request->input('lab');
+    //      // Menentukan tabel berdasarkan input form 'lab'
+    //      $tableName = $request->input('lab');
         
     $kursiLab = DB::table('daftar-lab')
-    ->where('value-lab', $tableName)
+    ->where('nama-lab',$request->lab)
     ->value('slot-kursi'); // A
 
    
     // Cek jumlah data dengan jadwal yang sama
-    $count = DB::table($tableName)
-        ->where('jadwal', $request->jadwal)
+    $count = DB::table('daftar-peserta')
+        ->where('lab', $request->lab)
+        ->where('tanggal', $request->jadwal)
         ->where('kegiatan', $request->kegiatan)
         ->where('sesi', $request->sesi)
         ->count();
 
-         // Debugging: Cek jumlah yang ditemukan
+        //  Debugging: Cek jumlah yang ditemukan
         //  dd($count, $kursiLab); // Lihat hasilnya sebelum pengecekan
 
     // dd($count); // uncomment ini untuk melihat nilai count
-    // dd($request->all(), $count);
+    // // dd($request->all(), $count);
     if ($count >= $kursiLab) {
         return redirect()->back()->withErrors(['cekSlot' => 'sesi sudah penuh,silahkan coba pilih sesi lain atau jadwal lain'])->withInput();
     }
 
-        //  dd($request->all());
-         // Simpan data ke dalam tabel yang dipilih menggunakan Query Builder
-          // Menggunakan Transaction agar operasi ke dua tabel atomik (saling bergantung)
-    DB::beginTransaction();
-    try {
+    //     //  dd($request->all());
+    //      // Simpan data ke dalam tabel yang dipilih menggunakan Query Builder
+    //       // Menggunakan Transaction agar operasi ke dua tabel atomik (saling bergantung)
+    // DB::beginTransaction();
+    // try {
         // Simpan data ke tabel lab yang dipilih
-        DB::table($tableName)->insert([
+        DB::table('daftar-peserta')->insert([
             'nama' => $request->nama,
             'email' => $request->email,
             'nim' => $request->nim,
-            'progam-studi' => $request->prodi,
+            'prodi' => $request->prodi,
             'kegiatan' => $request->kegiatan,
-            'jadwal' => $request->jadwal,
+            'tanggal' => $request->jadwal,
             'sesi' => $request->sesi,
+            'lab' => $request->lab
         ]);
 
         // Simpan data ke tabel nim-terdaftar
-        DB::table('nim_terdaftar')->insert([
-            'daftar-nim' => $request->nim,
-            'kegiatan' => $request->kegiatan,
+    //     DB::table('nim_terdaftar')->insert([
+    //         'daftar-nim' => $request->nim,
+    //         'kegiatan' => $request->kegiatan,
             
-        ]);
+    //     ]);
 
-        // Commit transaksi jika kedua operasi berhasil
-        DB::commit();
-    } catch (\Exception $e) {
-        // Rollback jika ada kesalahan
-        DB::rollBack();
-        return redirect()->back()->withErrors(['error' => 'Gagal menyimpan data.'])->withInput();
-    }
+    //     // Commit transaksi jika kedua operasi berhasil
+    //     DB::commit();
+    // } catch (\Exception $e) {
+    //     // Rollback jika ada kesalahan
+    //     DB::rollBack();
+    //     return redirect()->back()->withErrors(['error' => 'Gagal menyimpan data.'])->withInput();
+    // }
 
       
      

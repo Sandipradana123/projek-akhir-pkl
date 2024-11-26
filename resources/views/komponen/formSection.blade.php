@@ -146,8 +146,13 @@
                                         onchange="toggleSeats()">
                                         <option selected>*pilih lab</option>
                                         @foreach ($lab as $value => $daftarLab)
-                                            <option value="{{ $value }}"
+                                            {{-- <option value="{{ $value }}"
                                                 {{ old('lab') == $value ? 'selected' : '' }}>{{ $daftarLab }}
+                                            </option> --}}
+                                            <option value="{{$daftarLab}}">
+                                               
+                                                   {{$daftarLab}}
+                                               
                                             </option>
                                         @endforeach
                                     </select>

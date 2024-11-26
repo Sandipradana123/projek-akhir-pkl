@@ -86,9 +86,9 @@
     </a>
     <ul id="dropdownTabelJadwal" class="hidden space-y-2 mt-2">
         <li>
-            <a href="#subMenu1" class="flex items-center p-2 text-black rounded-lg text-black   group" onclick="showContent('subMenu1')">Lab upt komputer 1</a>
+            <a href="#subMenu1" class="flex items-center p-2 text-black rounded-lg text-black   group" onclick="showContent('subMenu1')">Daftar peserta</a>
         </li>
-        <li>
+        {{-- <li>
             <a href="#tabelJadwal" class="flex items-center p-2 text-black rounded-lg text-black  group" onclick="showContent('subMenu2')">Lab upt komputer 2</a>
         </li>
         <li>
@@ -111,7 +111,7 @@
         </li>
         <li>
             <a href="#tabelAkutansi" class="flex items-center p-2 text-black rounded-lg text-black  group" onclick="showContent('subMenu9')">Lab akutansi</a>
-        </li>
+        </li> --}}
         
     </ul>
 

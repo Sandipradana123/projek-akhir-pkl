@@ -21,8 +21,7 @@ class MhsUnique implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $tables = ['lab-komp1', 'lab-komp2', 'lab-mate1', 'lab-aka1', 
-                   'lab-informatika3', 'lab-feb3', 'lab-si4', 'lab-industri4', 'lab-aka4'];
+        $tables = ['daftar-peserta'];
 
         foreach ($tables as $table) {
             // Cek jika NIM dan kegiatan sudah ada di salah satu tabel
