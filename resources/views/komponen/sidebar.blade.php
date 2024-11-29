@@ -67,6 +67,14 @@
                 </a>
             </li>
             <li>
+                <a href="#subMenu1"
+                    class="flex items-center p-2 text-gray-900 rounded-lg text-black  group"
+                    onclick="showContent('subMenu1')">
+                   
+                    <span class="flex-1 ms-3 whitespace-nowrap">Daftar Peserta</span>
+                </a>
+            </li>
+            {{-- <li>
                     <a href="#tabelJadwal"
         class="flex items-center p-2 text-gray-900 rounded-lg text-black "
         onclick="toggleDropdown('dropdownTabelJadwal')">
@@ -83,11 +91,11 @@
             <path fill-rule="evenodd" d="M1.5 8a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z"/>
             <path fill-rule="evenodd" d="M1.5 10.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5z"/>
         </svg>
-    </a>
+    </a> --}}
     <ul id="dropdownTabelJadwal" class="hidden space-y-2 mt-2">
-        <li>
+        {{-- <li>
             <a href="#subMenu1" class="flex items-center p-2 text-black rounded-lg text-black   group" onclick="showContent('subMenu1')">Daftar peserta</a>
-        </li>
+        </li> --}}
         {{-- <li>
             <a href="#tabelJadwal" class="flex items-center p-2 text-black rounded-lg text-black  group" onclick="showContent('subMenu2')">Lab upt komputer 2</a>
         </li>

@@ -37,7 +37,7 @@ class AdminUkk extends Controller
         $jadwalDropdown = DB::table('jadwal')->where('status','aktif')->pluck('daftar-jadwal');
         $lab = DaftarLab::all();
         // $labDropdown = DaftarLab::where('status','aktif');
-        $labDropdown = DaftarLab::pluck('nama-lab');
+        $labDropdown = DaftarLab::pluck('nama_lab');
         $sesi = Sesi::all();
         $sesiDropdown = DB::table('sesi')->where('status','aktif')->pluck('daftar-sesi');
         $labKomp1 = DaftarPeserta::paginate(20);
@@ -109,13 +109,12 @@ class AdminUkk extends Controller
         
         
         DB::table('daftar-lab')->insert([
-            'nama-lab' => $request->NamaLab,
-            'value-lab' => $request->NamaDb,
+            'nama_lab' => $request->NamaLab,
             'slot-kursi' => $request->JumlahKursi,
             'status' => $request->status,
         ]);
 
-        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ke ');
+        return redirect()->route('admin-ukk')->with('success', 'Data berhasil ditambahkan ');
     }
     public function tambahSesi(Request $request){
         
@@ -213,7 +212,7 @@ class AdminUkk extends Controller
 
     $admin->save();
 
-    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
 
     public function updateUser(Request $request,$id){
@@ -255,7 +254,7 @@ class AdminUkk extends Controller
 
     $admin->save();
 
-    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
 
     public function updateLab(Request $request,$id){
@@ -263,12 +262,12 @@ class AdminUkk extends Controller
         // dd($request);
         $lab = DaftarLab::findOrFail($id);
         // Update data lab
-        $lab['nama-lab'] = $request->lab;
+        $lab->nama_lab = $request->lab;
         $lab['slot-kursi'] = $request->slotKursi;
         $lab['status'] = $request->status;
 
     $lab->save();
-    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
     public function updateSesi(Request $request,$id){
 
@@ -280,7 +279,7 @@ class AdminUkk extends Controller
     $sesi['status'] = $request->status;
 
     $sesi->save();
-    return redirect()->route('admin-ukk')->with('success', 'Admin updated successfully.');
+    return redirect()->route('admin-ukk')->with('success', 'Berhasil update');
     }
     public function updateKegiatan(Request $request,$id){
 

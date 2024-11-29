@@ -20,31 +20,31 @@
 </head>
 
 <body class="flex flex-col sm:flex-row">
-    
+
+
     @if (session('sesiHabis'))
     <div id="alert-popup" 
          class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
         <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
-            <div class="flex items-center">
-                <div class="flex-shrink-0 bg-red-100 p-3 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-3 3v3m0-6V9m0 6h-6m12 0h-6m6 0V9m0 6H9m12 0v-6m0 6h-6m6 0h-6m6 0V9m0 6h-6m6 0v3m-6 0v-3" />
-                    </svg>
-                </div>
-                <div class="ml-4">
-                    <h3 class="text-lg font-medium text-gray-900">Sesi Habis</h3>
-                    <p class="text-sm text-gray-600">{{ session('error') }}</p>
-                </div>
-            </div>
-            <div class="mt-4 text-right">
-                <button onclick="closePopup()" 
-                        class="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded">
-                    OK
-                </button>
-            </div>
+            <h3 class="text-lg font-medium text-gray-900">Sesi Habis</h3>
+            <p class="text-sm text-gray-600">{{ session('sesiHabis') }}</p>
+            <button onclick="closePopup()" 
+                    class="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded">
+                OK
+            </button>
         </div>
     </div>
 @endif
+
+<script>
+    function closePopup() {
+    const popup = document.getElementById('alert-popup');
+    if (popup) {
+        popup.style.display = 'none';
+    }
+}
+</script>
+
 
 
     {{-- awal sidebar --}}

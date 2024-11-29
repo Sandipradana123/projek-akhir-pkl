@@ -31,6 +31,12 @@ class AkunMhs implements ToModel
     if (empty(trim($row[0])) || empty(trim($row[1] )) || empty(trim($row[2] )) || empty(trim($row[3])) || empty(trim($row[4]))) {
         return null; // Lewati baris kosong
     }
+
+     // Pengecekan duplikasi NIM
+     $nim = trim($row[1]);
+     if ($this->isDuplicateNim($nim)) {
+         return null; // Lewati jika nim duplikat
+     }
        
         return new User([
             'username' => trim($row[0]),
@@ -43,5 +49,11 @@ class AkunMhs implements ToModel
         ]);
 
     }
+
+    // Fungsi untuk mengecek duplikasi NIM di database
+private function isDuplicateNim($nim)
+{
+    return User::where('nim', $nim)->exists();
+}
     
 }

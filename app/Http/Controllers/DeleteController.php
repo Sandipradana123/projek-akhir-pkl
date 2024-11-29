@@ -7,6 +7,7 @@ use App\Models\Jadwal;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\DaftarLab;
 use App\Models\DaftarPeserta;
 use App\Models\Sesi;
 
@@ -55,6 +56,14 @@ class DeleteController extends Controller
     }
     public function deletePeserta($id){
         $data = DaftarPeserta::find($id);
+
+        if ($data) {
+            $data->delete(); // Hapus data jika ditemukan
+            return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        }
+    }
+    public function deleteLab($id){
+        $data = DaftarLab::find($id);
 
         if ($data) {
             $data->delete(); // Hapus data jika ditemukan

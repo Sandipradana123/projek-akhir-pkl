@@ -11,9 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('daftar_peserta', function (Blueprint $table) {
+        Schema::create('daftar-peserta', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('email');
+            $table->string('nim',10)->unique()->nullable();
+            $table->string('prodi',)->nullable();
+            $table->string('kegiatan');
+            $table->string('tanggal');
+            $table->string('sesi');
+            $table->string('lab');
             $table->timestamps();
+            
         });
     }
 

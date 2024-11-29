@@ -11,4 +11,7 @@ class LabKomp1 extends Model
     protected $guarded = ['id'];
 
     protected $table = 'lab-komp1';
+
 }
+
+

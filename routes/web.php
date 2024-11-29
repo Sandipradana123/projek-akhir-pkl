@@ -6,7 +6,9 @@ use App\Http\Controllers\{
 };
 use App\Exports\ExportData;
 use App\Http\Controllers\PdfController;
+use App\Http\Middleware\EnsureUserIsAuthenticated;
 use App\Models\LabKomp1;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -63,6 +65,7 @@ Route::delete('delete-admin/{id}', [DeleteController::class, 'deleteAdmin'])->na
 Route::delete('delete-sesi/{id}', [DeleteController::class, 'deleteSesi'])->name('delete-sesi');
 Route::delete('delete-user/{id}', [DeleteController::class, 'deleteUser'])->name('delete-user');
 Route::delete('delete-peserta/{id}', [DeleteController::class, 'deletePeserta'])->name('delete-peserta');
+Route::delete('delete-lab/{id}', [DeleteController::class, 'deleteLab'])->name('delete-lab');
 
 // Export Routes
 Route::prefix('export')->group(function () {
@@ -77,6 +80,7 @@ Route::prefix('export')->group(function () {
     Route::get('/jadwal-labSistemInformasi', [ExportController::class, 'exportLabSistemInformasi'])->name('export.labSistemInformasi');
     Route::get('/jadwal-labProdiAka', [ExportController::class, 'exportLabProdiAka'])->name('export.LabProdiAka');
     Route::get('/template-akun-user', [ExportController::class, 'exportTemplateAkunUSer'])->name('export.templateUser');
+    Route::get('export-daftar-peserta-pdf', [ExportController::class, 'exportToPDF'])->name('export.peserta.pdf');
   
 });
 
@@ -89,3 +93,7 @@ Route::prefix('import')->group(function () {
 
 // Search Route
 Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+Route::get('/check-session', function () {
+    return response()->json(['authenticated' => Auth::check()]);
+});

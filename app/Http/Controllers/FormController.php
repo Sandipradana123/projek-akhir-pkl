@@ -42,7 +42,7 @@ class FormController extends Controller
     //      $tableName = $request->input('lab');
         
     $kursiLab = DB::table('daftar-lab')
-    ->where('nama-lab',$request->lab)
+    ->where('nama_lab',$request->lab)
     ->value('slot-kursi'); // A
 
    

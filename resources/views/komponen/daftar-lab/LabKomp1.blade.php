@@ -4,7 +4,7 @@
     <div class="bg-blue-400 text-white p-4 flex items-center justify-center relative">
         <h1 class="text-xl font-bold text-center">Sistem Pendataan Penggunaan Laboratorium UNIPMA</h1>
     </div>
-    <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Lab upt komputer 1</h1>
+    <h1 class="text-3xl font-bold mb-4 mt-10 text-center">Daftar peserta</h1>
     {{-- <button onclick="showBackFromTable()"
             class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-600 rounded-lg hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-400 mb-6">
             <i class="fas fa-arrow-left"></i>
@@ -22,8 +22,9 @@
               </form>
         </div> --}}
 
-
+        
     <form action="{{ url('export/jadwal') }}" method="GET" class="p-4">
+        @csrf
         <div class="flex flex-col md:flex-row md:gap-12">
             <!-- Kegiatan -->
             <div class="flex flex-col md:flex-row md:items-center mb-4">
@@ -76,8 +77,8 @@
                     name="lab">
                     <option value="">Semua</option>
                     @foreach ($lab as $daftarLab)
-                        <option value="{{ $daftarLab['nama-lab'] }}">
-                            {{ $daftarLab['nama-lab'] }}
+                        <option value="{{ $daftarLab->nama_lab }}">
+                            {{ $daftarLab->nama_lab }}
                         </option>
                     @endforeach
                 </select>
@@ -93,11 +94,24 @@
         </div>
     </form>
 
-    <button data-modal-target="modal-tambah-peserta" data-modal-toggle="modal-tambah-peserta"
-            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-            type="button">
-            <i class="fas fa-plus"></i> <!-- Ikon Font Awesome Plus -->
+    <div class="flex space-x-2">
+        <form action="{{route('export.peserta.pdf')}}">
+            <div class="flex items-center mb-4">
+                <button type="submit"
+                    class="block text-white bg-red-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+        </form>
+    <div class="flex items-center mb-4">
+        <button data-modal-target="modal-tambah-peserta" data-modal-toggle="modal-tambah-peserta"
+                class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                type="button">
+                <i class="fas fa-plus"></i>
         </button>
+    </div>
+    </div>
+    
     @if (session('dataErrorKomp1'))
         <div id="alert" class="bg-red-500 text-white p-4 rounded-lg mb-4">
             {{ session('dataErrorKomp1') }}
@@ -117,6 +131,8 @@
         <table class="w-full text-xs text-left rtl:text-right text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
+                    {{-- <pre>{{ print_r($labKomp1) }}</pre> --}}
+
                     <th scope="col" class="px-6 py-3">No</th>
                     <th scope="col" class="px-6 py-3">Nama</th>
                     <th scope="col" class="px-6 py-3">Email</th>
@@ -128,6 +144,7 @@
                     <th scope="col" class="px-6 py-3">Lab</th>
                     <th scope="col" class="px-6 py-3">Action</th>
                 </tr>
+                
             </thead>
             <tbody>
                 @php
@@ -529,96 +546,4 @@
             </div>
         </div>
 
-<script>
-    document.getElementById('filterKegiatan').addEventListener('change', function() {
-        const selectedKegiatan = this.value.toLowerCase();
 
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const kegiatan = row.getAttribute('data-kegiatan').toLowerCase();
-            if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const kegiatan = card.getAttribute('data-jadwal').toLowerCase();
-            if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-    document.getElementById('filterTanggal').addEventListener('change', function() {
-        const selectedTanggal = this.value.toLowerCase();
-
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const tanggal = row.getAttribute('data-tanggal').toLowerCase();
-            if (selectedTanggal === "" || tanggal.includes(selectedTanggal)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const kegiatan = card.getAttribute('data-kegiatan').toLowerCase();
-            if (selectedKegiatan === "" || kegiatan.includes(selectedKegiatan)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-    document.getElementById('filterSesi').addEventListener('change', function() {
-        const selectedSesi = this.value.toLowerCase()
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const sesi = row.getAttribute('data-sesi').toLowerCase();
-            if (selectedSesi === "" || sesi.includes(selectedSesi)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const sesi = card.getAttribute('data-sesi').toLowerCase();
-            if (selectedSesi === "" || kegiatan.includes(selectedSesi)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-
-    document.getElementById('filterLab').addEventListener('change', function() {
-        const selectedLab = this.value.toLowerCase()
-        // Filter baris pada tabel
-        document.querySelectorAll('.row-item').forEach(row => {
-            const sesi = row.getAttribute('data-lab').toLowerCase();
-            if (selectedLab === "" || sesi.includes(selectedLab)) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-
-        // Filter kartu kegiatan
-        document.querySelectorAll('.card-item').forEach(card => {
-            const sesi = card.getAttribute('data-sesi').toLowerCase();
-            if (selectedSesi === "" || kegiatan.includes(selectedSesi)) {
-                card.style.display = "";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-</script>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\DaftarLab;
+use App\Models\DaftarPeserta;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
         $kegiatan = DB::table('kegiatan')->where('status','pendataan')->pluck('daftar-kegiatan');       
         $jadwal = DB::table('jadwal')->where('status','aktif')->pluck('daftar-jadwal');
         $sesi = DB::table('sesi')->where('status','aktif')->pluck('daftar-sesi');
-        $lab = DB::table('daftar-lab')->where('status','Aktif')->pluck('nama-lab','value');
+        $lab = DaftarLab::where('status','aktif')->pluck('nama_lab');
       
 
         // Kirim data ke view

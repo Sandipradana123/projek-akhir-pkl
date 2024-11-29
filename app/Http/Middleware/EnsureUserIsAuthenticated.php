@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 
 class EnsureUserIsAuthenticated
 {
@@ -17,7 +18,11 @@ class EnsureUserIsAuthenticated
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {  // Jika user belum login
-            return redirect()->route('/')->withErrors('Kamu harus login terlebih dahulu.');
+            // Tambahkan pesan flash ke session
+            session()->flash('sesiHabis', 'Sesi login Anda telah habis. Silakan login kembali.');
+            // Logout user untuk memastikan sesi bersih
+        auth()->logout();
+            return redirect()->route('/');
         }
 
         return $next($request);
